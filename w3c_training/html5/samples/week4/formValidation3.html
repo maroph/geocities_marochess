@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <title>HTML5 Form Validation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="generator" content="PhpStorm 6.0"/>
+    <meta name="author" content="Manfred Rosenboom"/>
+    <meta name="description" content=""/>
+    <meta name="keywords" content=""/>
+    <meta name="robots" content="all"/>
+    <link rel="stylesheet" href="../../style.css"/>
+    <style>
+        input[type=number]:valid   { background-color: lightGreen; }
+        input[type=number]:invalid { background-color: lightpink; }
+        input:required             { border: 2px solid red; }
+        input[type=submit]         { background-color: #e0e0e0;  }
+    </style>
+</head>
+
+<body>
+<header>
+    <h1>HTML5 Form Validation</h1>
+</header>
+<main>
+
+    <section>
+        <article>
+        <p>
+            <label for="inputID">Enter an integer number between 10 and 20</label><br/>
+            <form onsubmit="return false;">
+                <input type="number" name="number" id="inputID"
+                       min="10"
+                       max="20"
+                       step="1"
+                       placeholder="10"
+                       required="required"/>
+                <input type="submit" value="Submit"/>
+            </form>
+        </p>
+        </article>
+
+        <article>
+        <a href="http://jsfiddle.net/girlie_mac/te3Qd/">http://jsfiddle.net/girlie_mac/te3Qd/</a>
+        </article>
+    </section>
+
+</main>
+<footer>
+    <p>
+        Validate <a href="http://validator.w3.org/check/referer" target="_blank">HTML</a> , Validate <a
+            href="http://jigsaw.w3.org/css-validator/check/referer" target="_blank">CSS</a><br/>
+        Last updated:
+        <time datetime="2013-04-09T09:55:00+0200">Tue, 9 Apr 2013 09:55:00 CEST</time>
+        <br/>
+        <a href="../../copyright.html">Copyright</a> Manfred Rosenboom
+    </p>
+</footer>
+<script>
+    var nodeInput = document.getElementById('inputID');
+
+    nodeInput.addEventListener('invalid', function(e) {
+        var inp = e.target;
+        var validityState = inp.validity;
+        if (!validityState) {
+            alert('validate: inp.validity == null');
+            return;
+        }
+
+        var msg = 'invalid';
+        if (validityState.badInput) {
+            msg += ':badInput';
+        }
+        if (validityState.typeMismatch) {
+            msg += ':typeMismatch';
+        }
+        if (validityState.valueMissing) {
+            msg += ':valueMissing';
+        }
+        if (validityState.rangeUnderflow) {
+            msg += ':rangeUnderflow';
+        }
+        if (validityState.rangeOverflow) {
+            msg += ':rangeOverflow';
+        }
+        if (validityState.tooLong) {
+            msg += ':tooLong';
+        }
+        if (validityState.stepMismatch) {
+            msg += ':stepMismatch';
+        }
+        if (validityState.patternMismatch) {
+            msg += ':patternMismatch';
+        }
+        if (validityState.customError) {
+            msg += ':customError';
+        }
+
+        inp.setCustomValidity(msg);
+    }, false);
+
+    nodeInput.addEventListener('input', function(e) {
+        e.target.setCustomValidity('');
+    }, false);
+</script>
+</body>
+</html>

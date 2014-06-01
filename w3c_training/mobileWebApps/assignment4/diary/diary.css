@@ -1,0 +1,247 @@
+@charset "UTF-8";
+/*
+ * Author      : Manfred Rosenboom
+ * Site        : http://www.geocities.ws/marochess/w3c_training/mobileWebApps/assignment2/
+ * Last Update : Sun, 23 Feb 2014 09:00:00 +0100
+ * License     : Creative Commons Attribution 4.0 International License
+ *               http://creativecommons.org/licenses/by/4.0/
+ * =============================================================================
+ */
+html {
+    min-width: 250px;
+}
+body {
+    margin: 0;
+    color: black;
+    background-color: white;
+    font-size: 14px;
+    font-style: normal; font-family: Arial, Helvetica, Verdana, sans-serif;
+    min-width: 260px;
+}
+
+header, footer {
+    clear:both;
+    background-color: #f6e6b4;
+    padding: 10px;
+    border: 2px solid #c0c0c0; border-radius: 12px;
+    display: block;
+}
+
+header {
+    margin: 5px;
+}
+
+header>h1 {
+    font-size: 20px;
+    text-shadow: 0 0 2px #333;
+}
+
+footer {
+    margin: 20px 5px 5px 5px;
+}
+
+section {
+    clear:both;
+    padding: 10px;
+}
+
+section>ul {
+    margin: 0;
+    list-style-type:none;
+}
+
+#newEntry {
+    display: none;
+    background-color: #f6e6b4;
+    width: 90%;
+    margin: 0 0 0 10px;
+    border: 2px solid #c0c0c0; border-radius: 12px;
+}
+#title {
+    width: 90%;
+}
+#text {
+    width: 90%;
+    height: 100px;
+}
+#location {
+    padding: 0;
+    width: 50%;
+    height: 24px;
+    background-color: #f0f0f0;
+}
+
+#addEntry {
+    float: left;
+    width: 120px;
+    padding: 10px;
+    font-weight: bold;
+    background-color: #f6e6b4;
+    border: 2px solid #c0c0c0; border-radius: 12px;
+    cursor: pointer;
+}
+#btnOkay {
+    width: 24px;
+    height: 24px;
+    background: url('images/OK.png');
+    cursor: pointer;
+}
+
+#btnCancel {
+    margin-left: 12px;
+    width: 24px;
+    height: 24px;
+    background: url('images/Abort.png');
+    cursor: pointer;
+}
+
+#btnLocation {
+    width: 24px;
+    height: 24px;
+    background: url('images/Compass.png');
+    cursor: pointer;
+}
+
+#btnSnapshot {
+    margin-left: 12px;
+    width: 24px;
+    height: 24px;
+    background: url('images/View.png');
+    cursor: pointer;
+}
+
+#btnUpload {
+    margin-left: 12px;
+    width: 24px;
+    height: 24px;
+    background: url('images/Upload.png');
+    cursor: pointer;
+}
+
+#expandCollapse {
+    margin-left: 150px;
+    width: 150px;
+}
+
+#btnExpandCollapse {
+    background-color: #f6e6b4;
+    padding: 9px;
+    border: 2px solid #c0c0c0; border-radius: 12px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+#entries {
+    width: 90%;
+}
+#entries>article>h1 {
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+}
+.time {
+    margin: 0 0 0 5px;
+    font-style: italic;
+    font-weight: normal;
+    font-size: 14px;
+}
+
+.show {
+    font-weight: normal;
+    font-size: 14px;
+    padding: 1px;
+    border: 1px solid black; border-radius: 0;
+    background-color: #f0f0f0;
+    -moz-transition: opacity 1s;
+    -o-transition: opacity 1s;
+    -webkit-transition: opacity 1s;
+    transition: opacity 1s;
+    opacity: 1;
+}
+
+.hide {
+    font-weight: normal;
+    font-size: 1px;
+    padding: 0;
+    opacity: 0;
+    line-height: 0;
+    height: 0;
+}
+
+.editButton {
+    width: 24px;
+    height: 24px;
+    background: url('images/Modify.png');
+    cursor: pointer;
+}
+
+.deleteButton {
+    margin-left: 12px;
+    width: 24px;
+    height: 24px;
+    background: url('images/Delete.png');
+    cursor: pointer;
+}
+
+.showLocationButton {
+    margin-left: 12px;
+    width: 24px;
+    height: 24px;
+    background: url('images/Compass.png');
+    cursor: pointer;
+}
+
+.showPhotoButton {
+    margin-left: 12px;
+    width: 24px;
+    height: 24px;
+    background: url('images/View.png');
+    cursor: pointer;
+}
+
+.statusOnline {
+    margin-left: 12px;
+    width: 24px;
+    height: 24px;
+    background: url('images/Thumbs_up.png');
+}
+
+.statusOffline {
+    margin-left: 12px;
+    width: 24px;
+    height: 24px;
+    background: url('images/Thumbs_down.png');
+}
+
+.statusUnknown {
+    margin-left: 12px;
+    width: 24px;
+    height: 24px;
+    background: url('images/Warning.png');
+}
+
+@media screen and (max-width: 280px) {
+    #expandCollapse {
+        display: none;
+    }
+}
+
+
+@media screen and (max-width: 400px) {
+    footer {
+        display: none;
+    }
+    #expandCollapse {
+        float: left;
+        margin-left: 0;
+    }
+    #btnExpandCollapse {
+    }
+    #text {
+        width: 90%;
+        height: 50px;
+    }
+    #browser {
+        display: none;
+    }
+}

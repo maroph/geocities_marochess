@@ -1,0 +1,42 @@
+/* 
+ * Author      : Manfred Rosenboom
+ * Site        : http://www.geocities.ws/marochess/
+ * Last Update : Sun, 27 Jan 2013 17:56:00 +0100
+ * License     : Creative Commons Attribution 3.0 Germany License
+ *               http://creativecommons.org/licenses/by/3.0/de/deed.en
+ * =============================================================================
+ */
+
+.tooltip {
+    position:relative;
+    z-index:24;
+    background-color:#d0d0d0;
+    color:#000000;
+    text-decoration:none;
+}
+
+a.tooltip:hover {
+	z-index:25; 
+	color:#000000;
+	background-color:#d0d0d0;
+}
+
+a.tooltip span {
+	display: none;
+}
+
+a.tooltip:hover span {
+    display:block;
+    position:absolute;
+    padding:5px;
+    top:2em;
+    left:2em; 
+    width:15em;
+    border:1px solid #000000;
+    background-color:#f0f0f0; 
+    color:#000000;
+    text-align:center;
+    font-family:Verdana, Helvetica, sans-serif;
+    font-size:80%;
+    font-style:italic;
+}

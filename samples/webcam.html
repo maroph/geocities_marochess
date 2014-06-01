@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <title>Samples: HTML5 Video Tag: Web Cam Streaming</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="generator" content="PhpStorm 6.0"/>
+    <meta name="author" content="Manfred Rosenboom"/>
+    <meta name="description" content=""/>
+    <meta name="keywords" content=""/>
+    <meta name="robots" content="all"/>
+    <link rel="stylesheet" type="text/css" href="../includes/default.css" media="all"/>
+    <script src="../includes/core.js"></script>
+    <script src="../includes/menu.js"></script>
+</head>
+
+<body>
+<nav>
+    <header style="display: none;">
+        <hgroup>
+            <h1>Navigation</h1>
+        </hgroup>
+    </header>
+    <div id="navMenu"></div>
+    <noscript>
+        <ul class="menu">
+            <li><a style="color:black; background-color: red;">Base Menu (no JavaScript)</a></li>
+            <li><a href="./index.html">Home</a></li>
+            <li><a href="./samples/index.html">Samples</a></li>
+            <li><a href="./tools/index.html">Tools</a></li>
+        </ul>
+    </noscript>
+</nav>
+
+<header>
+    <h1>Samples: HTML5 Video Tag: Web Cam Streaming</h1>
+</header>
+<main>
+
+    <section>
+        <header>
+            <hgroup>
+                <h1>A Simple Web Cam Streaming Sample</h1>
+            </hgroup>
+        </header>
+        <p>
+            This is a simple example to demonstrate how to use a web cam with the HTML5 video tag.
+            At the moment it only works in current Chrome and Opera versions.
+        </p>
+        <p>
+        <video id="video" poster="./webcam.png" width="320" height="240" style="border: 1px solid black;">
+          Your browser does not support the HTML5 &lt;video&gt; element.
+        </video>
+        <canvas  width="320" height="240" title="Click here for a snapshot of the video" style="border: 1px solid black;"></canvas><br/>
+        <button onclick="document.getElementById('video').play()">Start</button>
+        <button onclick="document.getElementById('video').pause()">Stop</button>
+        <a href="#" download="snapshot.png" onclick="createImageData(this);">download snapshot</a><br/>
+        </p>
+        <p>
+            <b>Hints</b>
+            <ul>
+            <li>The web cam streaming code is based on the following code:<br/>
+                <a href="http://jsbin.com/ipeyal/71/edit">http://jsbin.com/ipeyal/71/edit</a></li>
+            <li>The poster image for the video tag was created with the help of
+                <a href="http://placeimg.com/">placeIMG</a></li>
+            <li>The ration of the video area is exactly half the ration of my web cam. That's the reason
+            why the picture grabbed in the canvas has the right proportions.</li>
+            <li>The download attribute in the "download snapshot" link is brand new and will
+            give an error in the W3C HTML validator.</li>
+            <li>This sample works in Firefox 20, Chrome 26 and Opera 12.15</li>
+            <li>Have a look at the
+                <a href="http://mozilla.github.com/webrtc-landing/gum_test.html">Firefox getUserMedia Test Page</a>
+                for more details how Firefox supports the getUserMedia API.
+            </li>
+            </ul>
+        </p>
+        </p>
+    </section>
+
+</main>
+<footer>
+    <p>
+        <span class="noprint nomobile">Validate <a href="http://validator.w3.org/check/referer" target="_blank">HTML</a> , Validate <a href="http://jigsaw.w3.org/css-validator/check/referer" target="_blank">CSS</a><br/></span>
+        Last updated: <time datetime="2013-04-04T19:17:00+0200">Thu, 4 Apr 2013 19:17:00 CEST</time><br/>
+        <a href="../copyright.html">Copyright</a> Manfred Rosenboom
+    </p>
+</footer>
+
+<script>
+    var is_mozilla = false;
+    var is_webkit = false;
+    var video  = document.getElementById('video');
+    var canvas = document.querySelector('canvas');
+    var ctx    = canvas.getContext('2d');
+
+    ctx.fillText("Click here for a snapshot of the video", 80, 120);
+
+    function snapshot() {
+        ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+    }
+    canvas.addEventListener('click', snapshot, false);
+
+    function createImageData(atag) {
+        var canvas = document.querySelector('canvas');
+        atag.href = canvas.toDataURL();
+    }
+
+
+    function onSuccess(stream) {
+        var source;
+
+        video.autoplay = false;
+
+        if (!is_webkit) {
+            source = stream;
+        }
+        else {
+            source = window.webkitURL.createObjectURL(stream);
+        }
+
+        if (is_mozilla) {
+            video.mozSrcObject = source;
+        } else {
+             video.src = source;
+        }
+    }
+
+    function onError() {
+        // getUserMedia API not supported, or another application is using the webcam !
+    }
+
+    if (navigator.mozGetUserMedia) {
+        is_mozilla = true;
+        navigator.mozGetUserMedia({video:true, audio:false}, onSuccess, onError);
+    }
+    else if (navigator.getUserMedia) {
+        navigator.getUserMedia({video:true, audio:false}, onSuccess, onError);
+    }
+    else if (navigator.webkitGetUserMedia) {
+        is_webkit = true;
+        navigator.webkitGetUserMedia({video:true, audio:false}, onSuccess, onError);
+    }
+</script>
+<script>
+    var nodeNavMenu = document.getElementById('navMenu');
+    nodeNavMenu.innerHTML = addMenu();
+</script>
+</body>
+</html>

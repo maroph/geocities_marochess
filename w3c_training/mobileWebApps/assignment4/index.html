@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <title>W3C HTML5 Course: Assignment 4</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="generator" content="PhpStorm 7.1.2"/>
+    <meta name="author" content="Manfred Rosenboom"/>
+    <meta name="description" content=""/>
+    <meta name="keywords" content=""/>
+    <meta name="robots" content="all"/>
+    <link rel="stylesheet" href="./style.css"/>
+</head>
+
+<body>
+<header>
+    <h1>W3C Mobile Web 2 Course: Assignment 4</h1>
+</header>
+
+<nav>
+    <ul>
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="./diary/index.html">MyDiary</a></li>
+    </ul>
+</nav>
+
+<section>
+    <article>
+        <header><h2>Part 1 - Online/offline events</h2></header>
+        <p>
+            For the first part, check if the browser supports the online/offline events API.
+            If the API is supported by the browser, display a small indicator (e.g., an
+            accessible image like an LED-like light, or some text) somewhere in
+            your applications UI to let the user know if/when they have lost connectivity.
+        </p>
+    </article>
+
+    <article>
+        <header><h2>Part 2 - Part 2 - add and AppCache (Optional)</h2></header>
+        <p>
+            The second part of the assignment is a bit more difficult - and you will need to have access
+            to your own HTTP server to complete this part of the assignment (e.g., Apache). As not
+            everyone may have access to their own server space, we've made this part of the assignment
+            optional.
+        </p>
+        <p>
+            If you have your own server space and want a challenge: using a cache manifest, make your
+            HTML, CSS and Javascript files available offline.
+        </p>
+    </article>
+</section>
+
+<section>
+    <article>
+        <header>
+            <h2>Assignment 4: My Assignment Data</h2>
+        </header>
+
+        <p>
+            I viewed the web app with the following devices:
+        </p>
+
+        <ul>
+            <li>Samsung Galaxy S4 (Android 4.3)</li>
+            <li>Kindle Fire HD</li>
+            <li>Apple iPad Air (iOS 7)</li>
+            <li>Windows 7 PC 24inch monitor with the current Chrome and Firefox versions</li>
+        </ul>
+
+        <p>
+            You can call the MyDiary web application via two URLs:
+        </p>
+        <ul>
+            <li><a href="./diary/index.html">diary/index.html</a><br/>(MyDiary)</li>
+            <li><a href="./diary/index.html?clear">diary/index.html?clear</a><br/>(MyDiary with optional all entries removal - if entries are available)</li>
+        </ul>
+
+        <p>
+            The base functionality is same as in <a href="../assignment3/index.html">assignment 3</a>.
+        </p>
+
+        <p>
+            New feature: offline support. At the header you will see one of the following icons
+        </p>
+        <ul>
+            <li><img alt="Online" title="Online" src="diary/images/Thumbs_up.png"/> Application runs online</li>
+            <li><img alt="Offline" title="Offline" src="diary/images/Thumbs_down.png"/> Application runs offline</li>
+        </ul>
+        <p>
+            The application cache reload detection is implemented as described in section
+            &quot;6.1 Application Cache&quot;. I have added the handling of a special situation:
+            if the updateready event is detected during creating a new entry or modifying an existing
+            entry the location.reload() call is delayed until the new/modify entry is finished by either
+            save or cancel.
+        </p>
+    </article>
+
+    <article>
+        <header>
+            <h3>My appcache manifest</h3>
+        </header>
+        <p>
+            I use the following application cache manifest file (diary.appcache) for the MyDiary web application
+            (<a href="./diary/index.html">./diary/index.html</a>) and the files
+            <a href="./diary/camera.html">./diary/camera.html</a> and
+            <a href="./diary/imageLoader.html">./diary/imageLoader.html</a> :
+        </p>
+<pre>
+CACHE MANIFEST
+#Last updated: Sun, 23 Feb 2014 11:08:00 +0100
+#AddType text/cache-manifest .appcache
+#
+CACHE:
+camera.html
+imageLoader.html
+index.html
+index.html?clear
+diary.css
+diary.js
+images/Abort.png
+images/Compass.png
+images/Delete.png
+images/Modify.png
+images/OK.png
+images/Thumbs_down.png
+images/Thumbs_up.png
+images/Upload.png
+images/View.png
+images/Warning.png
+#
+FALLBACK:
+#
+NETWORK:
+map.html
+#
+#SETTINGS:
+prefer-online
+</pre>
+        <ul>
+            <li>I have added index.html?clear to the appcache manifest because else this URL will be
+                available online only</li>
+            <li>Because map.html use the online Google map data this file can't be used offline and
+                must always be loaded.</li>
+            <li>I use the prefer-online option to work with the online version if possible.</li>
+        </ul>
+    </article>
+
+    <article>
+        <header>
+            <h3>My .htaccess file</h3>
+        </header>
+        <p>
+            I wanted to use the following data in a .htaccess file in the diary directory but geocities.ws
+            doesn't allow the upload of such files for a free web hosting site :-(
+        </p>
+<pre>
+AddType text/cache-manifest .appcache
+&lt;IfModule mod_expires.c&gt;
+# Enable expirations.
+ExpiresActive On
+
+# Cache all files for 2 weeks after access (A).
+# (14 * 24 * 60 * 60 seconds)
+ExpiresDefault A1209600
+
+# disable caching of the appcache file
+&lt;FilesMatch (\.appcache)$&gt;
+ExpiresActive Off
+&lt;/FilesMatch&gt;
+&lt;/IfModule&gt;
+</pre>
+        <p>
+            The above .htaccess configuration will do the following things:
+        </p>
+        <ul>
+            <li>Use the proper mime type for the appcache file</li>
+            <li>Set a default expiration time of 2 weeks for all files</li>
+            <li>Don't cache the appcache file</li>
+        </ul>
+    </article>
+</section>
+
+<footer>
+    <p>
+        <span class="nomobile">Validate <a href="http://validator.w3.org/check/referer" target="_blank">HTML</a> , Validate <a
+            href="http://jigsaw.w3.org/css-validator/check/referer" target="_blank">CSS</a><br/></span>
+        Last updated: <time datetime="2014-02-23T13:04:00+0100">Sun, 23 Feb 2014 13:04:00 CET</time><br/>
+        <a href="../copyright.html" rel="copyright">Copyright</a> Manfred Rosenboom
+    </p>
+</footer>
+</body>
+</html>

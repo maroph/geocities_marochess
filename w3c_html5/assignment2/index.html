@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <title>W3C HTML5 Course: Assignment 2</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="generator" content="PhpStorm 6.0"/>
+    <meta name="author" content="Manfred Rosenboom"/>
+    <meta name="description" content=""/>
+    <meta name="keywords" content=""/>
+    <meta name="robots" content="all"/>
+    <link rel="stylesheet" href="./style.css"/>
+</head>
+
+<body>
+<header>
+    <h1>W3C HTML5 Course: Assignment 2</h1>
+</header>
+
+<nav>
+    <header>
+        <h1>Navigation</h1>
+    </header>
+    <ul>
+        <li><a href="../index.html">Home</a></li>
+        <li style="list-style: none;"><br/><b>Assignment 2 Data</b></li>
+        <li><a href="./paint/index.html">Paint Application</a></li>
+        <li><a href="./html5Paint.zip">html5Paint.zip</a></li>
+    </ul>
+</nav>
+
+<main>
+<section>
+    <article>
+        <header>
+            <h1>Assignment 2: HTML5 Canvas Paint Application</h1>
+        </header>
+
+    <p>
+        <b>Subject 2:</b> for people with JavaScript knowledge (ones with some experience in developing webapps with
+        more than 40 lines of JS!)
+    </p>
+    <p>
+        Start from the source of the paint program provided in the wrap up section at the end of this chapter.
+        Add some features to this application for drawing text, drawing other shapes (triangle), draw with texture
+        or with a gradient fill or stroke style.
+    </p>
+    <p>
+        Your application must be online somewhere and you will provide a Web page with some explanations of your
+        additions + a downloadable archive of your version of the paint program.
+    </p>
+    </article>
+
+    <article>
+        <header>
+            <h1>My Assignment Data</h1>
+        </header>
+        <ul>
+            <li><a href="./paint/index.html">Paint Application</a></li>
+            <li><a href="./html5Paint.zip">html5Paint.zip</a><br/>
+                (complete source of the paint application)
+            </li>
+        </ul>
+    </article>
+
+    <article>
+        <header>
+            <h1>Description</h1>
+        </header>
+        <p>
+            My code is based on step 6 of the tutorial used in the course material.
+        </p>
+    </article>
+
+    <article>
+        <header>
+            <h1>Added Drawing Tools</h1>
+        </header>
+        <ul>
+            <li><b>ellipse</b><br/>
+                Draw an ellipse with the center set by the first mouse down click.
+            </li>
+            <li><b>gradRectangle</b><br/>
+                Draw a rectangle filled by a rainbow gradient.
+            </li>
+            <li><b>image</b><br/>
+                Add an image (loaded by URL) to the canvas.<br/>
+                By clicking on this draw tool, the desired URL is prompted. A default image
+                is preselected and can be used. With the next mouse down the image will be
+                visible and draggable on the canvas until mouse up.
+            </li>
+            <li><b>text</b><br/>
+                Add a text to the canvas.<br/>
+                By clicking on this draw tool, the desired text is prompted. A default text
+                is preselected and can be used. With the next mouse down the text will be
+                visible and draggable on the canvas until mouse up.
+            </li>
+            <li><b>triangle</b><br/>
+                Draw a triangle: first mouse down sets 1st corner<br/>
+                1st mouse up sets the 2nd corner and the<br/>
+                2nd mouse up closes the triangle.
+            </li>
+        </ul>
+    </article>
+
+    <article>
+        <header>
+            <h1>Other Added Features</h1>
+        </header>
+        <ul>
+            <li>Highlight (mark) currently selected drawing tool.<br/>
+                The currently selected drawing tool is highlighted.
+            </li>
+            <li>Add tool tips to the drawing tool names.</li>
+            <li>Button: "Clear Canvas".<br/>
+                A click on this button simply clears the canvas.
+            </li>
+            <li>Download link<br/>
+                Makes the current canvas state available for download as an image.
+            </li>
+        </ul>
+    </article>
+</section>
+</main>
+
+   <footer>
+    <p>
+        <span class="nomobile noprint">Validate <a href="http://validator.w3.org/check/referer" target="_blank">HTML</a> , Validate <a
+            href="http://jigsaw.w3.org/css-validator/check/referer" target="_blank">CSS</a><br/></span>
+        Last updated: <time datetime="2013-04-04T19:48:00+0200">Thu, 04 Apr 2013 19:48:00 CEST</time><br/>
+        <a href="../copyright.html" rel="copyright">Copyright</a> Manfred Rosenboom
+    </p>
+</footer>
+</body>
+</html>

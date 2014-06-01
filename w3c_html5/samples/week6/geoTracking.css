@@ -1,0 +1,33 @@
+/* 
+ * Author      : Manfred Rosenboom
+ * Site        : http://www.geocities.ws/marochess/
+ * Last Update : Sun, 28 Apr 2013 16:28:00 +0200
+ * License     : Creative Commons Attribution 3.0 Unported License
+ *               http://creativecommons.org/licenses/by/3.0/
+ * =============================================================================
+ */
+body {
+    color: black;
+    font: 16px Arial;
+}
+#geotracker {
+    display: inline-block;
+    border: 1px solid black;
+    padding: 5px;
+    margin: 10px 0;
+    width: 240px;
+}
+p {
+    margin: 0;
+    padding: 2px;
+    color: #222;
+}
+span {
+    color: #00C;
+}
+.success {
+    color: #008000;
+}
+.error {
+    color: #ff0000;
+}

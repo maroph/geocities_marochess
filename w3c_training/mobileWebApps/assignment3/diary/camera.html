@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <title>Camera Snapshot</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="generator" content="PhpStorm 7.1.2"/>
+    <meta name="author" content="Manfred Rosenboom"/>
+    <meta name="description" content="use camera to take a snapshot"/>
+    <meta name="keywords" content="HTML5, video, canvas, camera, snapshot"/>
+    <meta name="robots" content="all"/>
+    <style>
+        body { min-width: 330px; }
+        @media screen and (max-width: 400px) { header, footer { display: none; } }
+    </style>
+</head>
+
+<body>
+<header>
+    <h1 id="headline">Camera Snapshot</h1>
+</header>
+<section>
+    <p>
+    <video id="video" width="320" height="240" style="border: 1px solid black;">
+    Your browser does not support the HTML5 &lt;video&gt; element.
+    </video><canvas  width="320" height="240" style="display:none;"></canvas><br/>
+    <button id="btnCamera">Snapshot</button>
+    <a id="download" style="display: none;" href="#" download="snapshot.png">download snapshot</a>
+    <br/><button id="btnClose" style="display:none;">Close</button>
+    </p>
+</section>
+<footer>
+    <p>
+        Last updated: <time datetime="2014-02-16T12:33:00+0100">Sun, 16 Feb 2014 12:33:00 CET</time><br/>
+        <a href="../../../copyright.html">Copyright</a> Manfred Rosenboom
+    </p>
+</footer>
+
+<script>
+    var diaryStorePhotoKey = 'www_geocities_ws_marochess_MyDiary_Photo';
+
+    var is_mozilla     = false;
+    var is_webkit      = false;
+    var isCameraActive = true;
+    var video          = document.getElementById('video');
+    var btnCamera      = document.getElementById('btnCamera');
+    var btnClose       = document.getElementById('btnClose');
+    var canvas         = document.querySelector('canvas');
+    var ctx            = canvas.getContext('2d');
+    var download       = document.getElementById('download');
+    var nodeHeadline   = document.getElementById('headline');
+
+    function isMyDiaryMode() {
+        if (!window.localStorage) {
+            if (nodeHeadline.innerHTML != 'Camera Snapshot') {
+                nodeHeadline.innerHTML = 'Camera Snapshot';
+            }
+            return false;
+        }
+
+        var data = window.localStorage.getItem(diaryStorePhotoKey);
+        if (!data) {
+            if (nodeHeadline.innerHTML != 'Camera Snapshot') {
+                nodeHeadline.innerHTML = 'Camera Snapshot';
+            }
+            return false;
+        }
+
+        if ((data == diaryStorePhotoKey) || (data.indexOf('data:') == 0)) {
+            if (nodeHeadline.innerHTML != 'Camera Snapshot (MyDiary)') {
+                nodeHeadline.innerHTML = 'Camera Snapshot (MyDiary)';
+            }
+            return true;
+        }
+
+        if (nodeHeadline.innerHTML != 'Camera Snapshot') {
+            nodeHeadline.innerHTML = 'Camera Snapshot';
+        }
+        return false;
+    }
+
+    function handleCamera() {
+        if (isCameraActive) {
+            snapshot();
+            if (isMyDiaryMode()) {
+                window.localStorage.setItem(diaryStorePhotoKey, canvas.toDataURL());
+                btnClose.style.display = 'block';
+            }
+            btnCamera.innerHTML = 'New Photo';
+            isCameraActive = false;
+        } else {
+            if (isMyDiaryMode()) {
+                window.localStorage.removeItem(diaryStorePhotoKey);
+            }
+            newPhoto();
+            btnCamera.innerHTML = 'Snapshot';
+            btnClose.style.display = 'none';
+            isCameraActive = true;
+        }
+    }
+
+    function closeCamera() {
+        window.close();
+    }
+
+    function snapshot() {
+        video.pause();
+        ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+        //imageData = ctx.getImageData(0, 0, canvas.width, canvas.height).data;
+        download.href = canvas.toDataURL();
+        download.style.display = 'inline';
+    }
+
+    function newPhoto() {
+        video.play();
+        //imageData = null;
+        download.href = '#';
+        download.style.display = 'none';
+    }
+
+    function onSuccess(stream) {
+        var source;
+
+        video.autoplay = false;
+
+        if (!is_webkit) {
+            source = stream;
+        }
+        else {
+            source = window.webkitURL.createObjectURL(stream);
+        }
+
+        if (is_mozilla) {
+            video.mozSrcObject = source;
+        } else {
+             video.src = source;
+        }
+    }
+
+    function onError() {
+        alert('getUserMedia API not supported, or another application is using the camera !');
+    }
+
+    if (navigator.mozGetUserMedia) {
+        is_mozilla = true;
+        navigator.mozGetUserMedia({video:true, audio:false}, onSuccess, onError);
+    }
+    else if (navigator.getUserMedia) {
+        navigator.getUserMedia({video:true, audio:false}, onSuccess, onError);
+    }
+    else if (navigator.webkitGetUserMedia) {
+        is_webkit = true;
+        navigator.webkitGetUserMedia({video:true, audio:false}, onSuccess, onError);
+    }
+
+
+    if (isMyDiaryMode()) {
+        if (nodeHeadline.innerHTML != 'Camera Snapshot (MyDiary)') {
+            nodeHeadline.innerHTML = 'Camera Snapshot (MyDiary)';
+        }
+    }
+
+    btnCamera.addEventListener('click',handleCamera,false);
+    btnClose.addEventListener('click',closeCamera,false);
+    video.play();
+</script>
+</body>
+</html>

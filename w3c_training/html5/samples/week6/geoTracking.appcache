@@ -1,0 +1,18 @@
+CACHE MANIFEST
+#Last updated: Sun, 5 May 2013 15:55:00 CEST
+#AddType text/cache-manifest .appcache
+#<html manifest="cache.manifest">
+
+CACHE:
+http://www.geocities.ws/marochess/w3c_html5/samples/week6/geoTracking.html
+http://www.geocities.ws/marochess/w3c_html5/samples/week6/geoTracking.css
+http://www.geocities.ws/marochess/w3c_html5/samples/week6/geoTracking.js
+
+FALLBACK:
+
+NETWORK:
+*
+
+#SETTINGS:
+#prefer-online
+#fast

@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <title>Assignment 1: About Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="generator" content="PhpStorm 6.0"/>
+    <meta name="author" content="Manfred Rosenboom"/>
+    <meta name="description" content=""/>
+    <meta name="keywords" content=""/>
+    <meta name="robots" content="all"/>
+    <link rel="stylesheet" href="./style.css"/>
+</head>
+
+<body>
+<header>
+    <h1>Assignment 1: About Page</h1>
+</header>
+
+<nav>
+    <header>
+        <h1>Navigation Menu</h1>
+    </header>
+    <ul>
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="./index.html">Assignment 1 Home Page</a></li>
+    </ul>
+</nav>
+
+<aside>
+    <header>
+        <hgroup>
+            <h1><a href="javascript:(function(){var i=function(a){this.sections=[];this.startingNode=a};i.prototype={heading:false,append:function(a){a.container=this;this.sections.push(a)},asHTML:function(a){var b=u(this.heading);if(a)b='&lt;a href=&quot;#'+v(this.startingNode)+'&quot;&gt;'+b+&quot;&lt;/a&gt;&quot;;return b+q(this.sections,a)}};var q=function(a,b){for(var f=&quot;&quot;,c=0;c&lt;a.length;c++)f+=&quot;&lt;li&gt;&quot;+a[c].asHTML(b)+&quot;&lt;/li&gt;&quot;;return f==&quot;&quot;?f:&quot;&lt;ol&gt;&quot;+f+&quot;&lt;/ol&gt;&quot;},r=function(a){a=a.heading;return h(a)?j(a):1},u=function(a){if(h(a)){if(k(a)==&quot;HGROUP&quot;)a=a.getElementsByTagName(&quot;h&quot;+
+            -j(a))[0];return a.textContent||a.innerText||&quot;&lt;i&gt;No text content inside &quot;+a.nodeName+&quot;&lt;/i&gt;&quot;}return&quot;&quot;+a},v=function(a){var b=a.getAttribute(&quot;id&quot;);if(b)return b;do b=&quot;h5o-&quot;+ ++s;while(t.getElementById(b));a.setAttribute(&quot;id&quot;,b);return b},e,d,g,s,t,w=function(a,b,f){var c=a;a:for(;c;){b(c);if(c.firstChild){c=c.firstChild;continue a}for(;c;){f(c);if(c.nextSibling){c=c.nextSibling;continue a}c=c==a?null:c.parentNode}}},x=function(a){if(!h(o(g)))if(l(a)||m(a)){e!=null&amp;&amp;g.push(e);e=a;d=new i(a);e.outline=
+            {sections:[d],startingNode:a,asHTML:function(c){return q(this.sections,c)}}}else if(e!=null)if(h(a)){if(d.heading)if(j(a)&gt;=r(n(e.outline))){var b=new i(a);e.outline.sections.push(b);d=b;d.heading=a}else{b=false;var f=d;do{if(j(a)&lt;r(f)){b=new i(a);f.append(b);d=b;d.heading=a;b=true}f=f.container}while(!b)}else d.heading=a;g.push(a)}},y=function(a){var b=o(g);if(h(b))b==a&amp;&amp;g.pop();else{if((l(a)||m(a))&amp;&amp;!d.heading)d.heading=&quot;&lt;i&gt;Untitled &quot;+k(a)+&quot;&lt;/i&gt;&quot;;if(l(a)&amp;&amp;g.length&gt;0){e=g.pop();d=n(e.outline);for(b=
+            0;b&lt;a.outline.sections.length;b++)d.append(a.outline.sections[b])}else if(m(a)&amp;&amp;g.length&gt;0){e=g.pop();for(d=n(e.outline);d.sections.length&gt;0;)d=n(d)}else if(l(a)||m(a))d=e.outline.sections[0]}},k=function(a){return a.tagName.toUpperCase()},p=function(a){return function(b){return z(b)&amp;&amp;(new RegExp(a,&quot;i&quot;)).test(k(b))}},m=p(&quot;^BLOCKQUOTE|BODY|DETAILS|FIELDSET|FIGURE|TD$&quot;),l=p(&quot;^ARTICLE|ASIDE|NAV|SECTION$&quot;),h=p(&quot;^H[1-6]|HGROUP$&quot;),z=function(a){return a&amp;&amp;a.tagName},j=function(a){var b=k(a);if(b==&quot;HGROUP&quot;)for(b=
+            1;b&lt;=6;b++){if(a.getElementsByTagName(&quot;H&quot;+b).length&gt;0)return-b}else return-parseInt(b.substr(1))},n=function(a){return o(a.sections)},o=function(a){return a[a.length-1]};HTML5Outline=function(a){s=0;t=a.ownerDocument||window.document;d=e=null;g=[];w(a,x,y);return e!=null?e.outline:null}})();
+            ;(function(){var b=function(e,f){for(var d=0;d&lt;e.length;d++)e[d].setAttribute(&quot;style&quot;,f)},g=HTML5Outline(document.body).asHTML(true),a=document.createElement(&quot;div&quot;);b([a],&quot;position:fixed;top:10px;right:10px;border:2px solid #000;background:rgba(255,255,255,.9);padding:15px;z-index:999;max-height:400px;overflow:auto;font-size:11px;font-family:Verdana, sans-serif;&quot;);a.innerHTML=g;b(a.getElementsByTagName(&quot;li&quot;),&quot;list-style:decimal outside;margin-left:20px;font-size:11px;font-family:Verdana, sans-serif;&quot;);
+            b(a.getElementsByTagName(&quot;ol&quot;),&quot;margin: 0;padding:0;font-size:11px;font-family:Verdana, sans-serif;&quot;);b(a.getElementsByTagName(&quot;a&quot;),&quot;color:#008;text-decoration:underline;font-size:11px;font-family:Verdana, sans-serif;&quot;);var c=a.insertBefore(document.createElement(&quot;a&quot;),a.firstChild);b([c],&quot;float: right; margin: 0 0 5px 5px; padding: 5px; border: 1px #008 solid;color:#00f;background-color:#ccf;&quot;);c.innerHTML=&quot;Close&quot;;c.href=&quot;#&quot;;c.onclick=function(){document.body.removeChild(a);a=c=null};document.body.appendChild(a)})();
+            ;" title="Table of Content">Table of Content</a></h1>
+            <h1>Links</h1>
+        </hgroup>
+    </header>
+    <ul>
+        <li><b>My Links</b></li>
+        <li><a href="http://about.me/maroph">about.me</a></li>
+        <li><a href="https://www.facebook.com/manfred.rosenboom">Facebook</a></li>
+        <li><a href="http://www.linkedin.com/in/manfredrosenboom">LinkedIn</a></li>
+        <li><a href="http://www.twitter.com/maroph">Twitter</a></li>
+        <li><b>HTML5</b></li>
+        <li><a href="http://www.w3devcampus.com/html5-w3c-training/">W3C HTML5 Training</a></li>
+        <li><a href="http://caniuse.com/">Can I Use - HTML5/CSS3 Support</a></li>
+        <li><a href="http://html5doctor.com/">HTML5 Doctor</a></li>
+        <li><a href="http://gsnedders.html5.org/outliner/">HTML5 Outliner</a></li>
+        <li><b>Microdata</b></li>
+        <li><a href="http://www.schema.org/">schema.org</a></li>
+        <li><a href="http://schema-creator.org/">schema-creator.org</a></li>
+        <li><a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/microdata.html#microdata">Current Microdata API Draft</a></li>
+        <li><a href="http://w3c-test.org/html/tests/submission/Opera/microdata/001.html"></a>Microdata Browser Test</li>
+        <li><a href="http://www.google.com/webmasters/tools/richsnippets">Google Microdata Test Tool</a></li>
+        <li><a href="http://foolip.org/microdatajs/live/">Live Microdata</a></li>
+        <li><b>Cross Browser Screenshots</b></li>
+        <li><a href="http://browsershots.org/">browsershots.org</a></li>
+        <li><a href="https://browserling.com/">browserling.com</a></li>
+    </ul>
+</aside>
+
+<main>
+
+<section>
+    <details>
+        <summary id="detailsSummary">About Me ... Spoiler Alert!</summary>
+        <div id="detailsDiv">
+        <p>
+            Using Chrome 25.x you see this text only - as intended - by clicking on the "spoiler alert"
+            line. Firefox 19.0.2 and <mark>other browsers show this text anyway</mark> after loading the page. I have
+            used a minimalistic JavaScript/CSS solution to prevent this problem.<br/>
+            See <a href="http://caniuse.com/#feat=details">support of details and summary elements in browsers</a> for further details.
+        </p>
+        </div>
+    </details>
+
+    <header>
+        <h1>About</h1>
+    </header>
+
+    <article>
+        <header>
+            <hgroup>
+                <h1>About Me</h1>
+                <h2>Some infos about me</h2>
+            </hgroup>
+        </header>
+        <p id="user"
+           data-name="Manfred Rosenboom" data-city="Munich"
+           data-lang="C, Java, JavaScript and PHP" data-food="Pizza"
+           data-speak="German, English and Dutch">
+           Click this line: <b>Manfred says: </b> <span>Hello, how are you?</span>
+           <noscript><br/>(This works only with activated JavaScript)</noscript>
+        </p>
+        <p>
+            Hi, my name is <span translate="no">Manfred Rosenboom</span>. I'm from Germany
+            and live near Munich.
+        </p>
+        <figure>
+            <img src="./Manfred_auf_Motorrad3.jpg" alt="me myself on a motorbike" title="me myself on a motorbike" style="border: 1px solid black;"/>
+            <figcaption>
+                Photo: Me myself on a motorbike
+            </figcaption>
+        </figure>
+        <a href="./Manfred_auf_Motorrad3.jpg" download="ManfredOnMotorbike.jpg">download this picture of me</a> (this sample link uses the download attribute)<br/>
+        (see which browser <a href="http://caniuse.com/#feat=download">supports the download attribute</a>)<br/>
+    </article>
+
+    <article>
+        <header>
+            <hgroup>
+                <h1>About My Work</h1>
+                <h2>Some infos about my work</h2>
+            </hgroup>
+        </header>
+        <p>
+            I'm working as a Senior Developer for Fujitsu Germany. At the moment I work mainly
+            on the <a href="http://www.fujitsu.com/fts/products/computing/storage/software/backup-archiving/secdocs/">Fujitsu SecDocs</a>
+            project. I use JEE and web based technologies in general (mainly server-side programming) with the
+            following application servers: JBoss AS, GlassFish, Oracle WebLogic Server, Oracle SOA Suite and Tomcat.
+            I use also the following database systems: H2, Oracle DB/RAC and MySQL.
+        </p>
+    </article>
+
+    <article itemscope itemtype="http://schema.org/Person">
+        <header>
+            <hgroup>
+                <h1>My Work Contact Data</h1>
+            </hgroup>
+        </header>
+        <p>
+            <span itemprop="name">Manfred Rosenboom</span><br/>
+            <span itemprop="jobTitle">Senior Developer</span><br/>
+            <span itemprop="worksFor" itemscope itemtype="http://schema.org/Corporation">
+            <span itemprop="legalName">Fujitsu Technology Solutions GmbH</span><br/>
+            </span>
+            <span itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+            <span itemprop="streetAddress">Domagkstraße 28</span><br/>
+            <span itemprop="postalCode">80807</span> <span itemprop="addressLocality">Munich</span><br/>
+            <span itemprop="addressCountry">Germany</span><br/>
+            </span>
+            URL: <a href="http://ts.fujitsu.com/" itemprop="url">ts.fujitsu.com</a><br/>
+            Mail: <a href="mailto:Manfred.Rosenboom@ts.fujitsu.com" itemprop="email">Firstname.Lastname@ts.fujitsu.com</a><br/>
+        </p>
+        <input type="button" id="microdata" value=" show microdata "/>
+        Alternative view to my microdata: <a href="http://www.google.com/webmasters/tools/richsnippets?url=http%3A%2F%2Fgeocities.ws%2Fmarochess%2Fw3c_html5%2Fassignment1%2Fabout.html">view microdata in the Google Test Tool</a>
+        <div id="microdataOutput"></div>
+    </article>
+
+    <article>
+        <header>
+            <hgroup>
+                <h1>Motto</h1>
+                <h2 class="notranslate" translate="no">This part is marked as translate="no"</h2>
+            </hgroup>
+        </header>
+        <p class="notranslate" translate="no"><b>Don't panic and always carry a towel with you</b></p>
+    </article>
+</section>
+
+</main>
+
+<footer>
+    <p>
+        <span class="nomobile">Validate <a href="http://validator.w3.org/check/referer" target="_blank">HTML</a> , Validate
+        <a href="http://jigsaw.w3.org/css-validator/check/referer" target="_blank">CSS</a><br/></span>
+        Last updated: <time datetime="2013-03-22T18:43:00+0100">Fri, 22 Mar 2013 18:43:00 CET</time><br/>
+        <a href="../copyright.html" rel="copyright">Copyright</a> Manfred Rosenboom
+    </p>
+</footer>
+
+<script>
+    var user = document.getElementById("user");
+    var span = user.getElementsByTagName("span")[0];
+    var pos = 0;
+    var phrases = [
+        { name: "name",  prefix: "My name is "},
+        { name: "city",  prefix: "I am from "},
+        { name: "speak", prefix: "I speak " },
+        { name: "food",  prefix: "I like to eat "},
+        { name: "lang",  prefix: "I like to program in " }
+    ];
+    user.addEventListener( "click", function(){
+        // Pick a phrase
+        var phrase = phrases[pos++ % phrases.length];
+
+        // Use the .dataset property depending on the value of phrase.name
+        // phrase.name is "city", "food" or "lang"
+        span.innerHTML = phrase.prefix + user.dataset[phrase.name]
+    }, false);
+
+    var microdata = document.getElementById("microdata");
+    var microdataOutput = document.getElementById("microdataOutput");
+    var showMicroData = false;
+    if (document.getItems) {
+    microdata.addEventListener( "click", function(){
+        if (showMicroData) {
+            showMicroData = false;
+            microdataOutput.innerHTML = '';
+            microdata.value = ' show microdata ';
+            return;
+        }
+        showMicroData = true;
+        var person      = document.getItems('http://schema.org/Person')[0];
+        var address     = person.properties['address'][0];
+        var corporation = person.properties['worksFor'][0];
+
+        var data = '<pre>\n';
+        data += 'name                    : ' + person.properties['name'][0].textContent + '\n';
+        data += 'jobTitle                : ' + person.properties['jobTitle'][0].textContent + '\n';
+        data += 'worksFor.legalName      : ' + corporation.properties['legalName'][0].textContent + '\n';
+        data += 'address.streetAddress   : ' + address.properties['streetAddress'][0].textContent + '\n';
+        data += 'address.postalCode      : ' + address.properties['postalCode'][0].textContent + '\n';
+        data += 'address.addressLocality : ' + address.properties['addressLocality'][0].textContent + '\n';
+        data += 'address.addressCountry  : ' + address.properties['addressCountry'][0].textContent + '\n';
+        data += 'url                     : ' + person.properties['url'][0].href + '\n';
+        data += 'email                   : ' + person.properties['email'][0].href + '\n';
+        data += '</pre>\n';
+        microdataOutput.innerHTML = data;
+        microdata.value = ' hide microdata ';
+    }, false);
+    } else {
+        microdataOutput.innerHTML = '<b>Microdata API not supported</b>';
+    }
+
+
+    // add minimalistic details support
+    // source: http://html5doctor.com/the-details-and-summary-elements/#fallbacks
+    if (!('open' in document.createElement('details'))) {
+        var detailsSummary = document.getElementById("detailsSummary");
+        var detailsDiv     = document.getElementById("detailsDiv");
+        var detailsVisible = false;
+        detailsVisible = false;
+        detailsDiv.style.display = 'none';
+        detailsSummary.addEventListener( "click", function(){
+            if (detailsVisible) {
+                detailsVisible = false;
+                detailsDiv.style.display = 'none';
+            } else {
+                detailsVisible = true;
+                detailsDiv.style.display = 'block';
+            }
+        }, false);
+    }
+</script>
+</body>
+</html>

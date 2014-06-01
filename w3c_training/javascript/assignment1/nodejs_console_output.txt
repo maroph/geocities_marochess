@@ -1,0 +1,400 @@
+D:\Programme\nodejs\node.exe assignment1-ManfredRosenboom.js
+
+
+=================================================
+PART 1: Find & Sort
+=================================================
+
+PART 1: A) findBy
+
+findBy(drumsKit, 'id', 1): expect one item
+[ { id: 1,
+    name: 'drum2',
+    sources: [ 'http://www.w3c.com/demo/sample.mp3' ],
+    color: 'blue',
+    key: 'W' } ]
+
+findBy(drumsKit, 'color', 'blue'): expect 2 items
+[ { id: 1,
+    name: 'drum2',
+    sources: [ 'http://www.w3c.com/demo/sample.mp3' ],
+    color: 'blue',
+    key: 'W' },
+  { id: 3,
+    name: 'drum4',
+    sources:
+     [ 'http://www.w3c.com/demo/d4.ogg',
+       'http://www.w3c.com/demo/d4.mp3' ],
+    color: 'blue',
+    key: 'R' } ]
+
+findBy(drumsKit, 'color', 'pink'): expect an empty array
+[]
+
+findBy(drumsKit, 'id'): expect all (4) items
+[ { id: 0,
+    name: 'drum1',
+    sources: [ '/local/sounds/a.wav', '/local/sounds/a.mp3' ],
+    color: '#1478AA',
+    key: 'Q' },
+  { id: 1,
+    name: 'drum2',
+    sources: [ 'http://www.w3c.com/demo/sample.mp3' ],
+    color: 'blue',
+    key: 'W' },
+  { id: 6,
+    name: 'drum7',
+    sources: [ '/local/sounds/drum/d3.ogg' ],
+    color: 'red',
+    key: 'E' },
+  { id: 3,
+    name: 'drum4',
+    sources:
+     [ 'http://www.w3c.com/demo/d4.ogg',
+       'http://www.w3c.com/demo/d4.mp3' ],
+    color: 'blue',
+    key: 'R' } ]
+
+
+PART 1: B) sort
+
+
+PART 1: B) sort: 1) compareById
+
+drumsKit.sort(compareById): expect array is sorted by id
+[ { id: 0,
+    name: 'drum1',
+    sources: [ '/local/sounds/a.wav', '/local/sounds/a.mp3' ],
+    color: '#1478AA',
+    key: 'Q' },
+  { id: 1,
+    name: 'drum2',
+    sources: [ 'http://www.w3c.com/demo/sample.mp3' ],
+    color: 'blue',
+    key: 'W' },
+  { id: 3,
+    name: 'drum4',
+    sources:
+     [ 'http://www.w3c.com/demo/d4.ogg',
+       'http://www.w3c.com/demo/d4.mp3' ],
+    color: 'blue',
+    key: 'R' },
+  { id: 6,
+    name: 'drum7',
+    sources: [ '/local/sounds/drum/d3.ogg' ],
+    color: 'red',
+    key: 'E' } ]
+
+
+PART 1: B) sort: 2) compareByProperty
+create a by name comparator: compareByName
+drumsKit.sort(compareByName): expect: array is sorted by the name property
+[ { id: 0,
+    name: 'drum1',
+    sources: [ '/local/sounds/a.wav', '/local/sounds/a.mp3' ],
+    color: '#1478AA',
+    key: 'Q' },
+  { id: 1,
+    name: 'drum2',
+    sources: [ 'http://www.w3c.com/demo/sample.mp3' ],
+    color: 'blue',
+    key: 'W' },
+  { id: 3,
+    name: 'drum4',
+    sources:
+     [ 'http://www.w3c.com/demo/d4.ogg',
+       'http://www.w3c.com/demo/d4.mp3' ],
+    color: 'blue',
+    key: 'R' },
+  { id: 6,
+    name: 'drum7',
+    sources: [ '/local/sounds/drum/d3.ogg' ],
+    color: 'red',
+    key: 'E' } ]
+
+
+create a by name comparator: compareByColor
+drumsKit.sort(compareByColor): expect: array is sorted by the color property
+[ { id: 0,
+    name: 'drum1',
+    sources: [ '/local/sounds/a.wav', '/local/sounds/a.mp3' ],
+    color: '#1478AA',
+    key: 'Q' },
+  { id: 1,
+    name: 'drum2',
+    sources: [ 'http://www.w3c.com/demo/sample.mp3' ],
+    color: 'blue',
+    key: 'W' },
+  { id: 3,
+    name: 'drum4',
+    sources:
+     [ 'http://www.w3c.com/demo/d4.ogg',
+       'http://www.w3c.com/demo/d4.mp3' ],
+    color: 'blue',
+    key: 'R' },
+  { id: 6,
+    name: 'drum7',
+    sources: [ '/local/sounds/drum/d3.ogg' ],
+    color: 'red',
+    key: 'E' } ]
+
+
+=================================================
+PART 2: Create, Add and Remove item
+=================================================
+
+PART 2: A) Constructor
+
+
+PART 2: B) Add an object to the drumsKit array
+
+
+create a new object item
+myDrum = new Drum('myDrum', ['/local/path/d1.ogg'], 'purple', 'l')
+
+
+addItem(drumsKitCopy, myDrum)
+console.log(drumsKitCopy): expect the new item at the end of the data
+[ { id: 0,
+    name: 'drum1',
+    sources: [ '/local/sounds/a.wav', '/local/sounds/a.mp3' ],
+    color: '#1478AA',
+    key: 'Q' },
+  { id: 1,
+    name: 'drum2',
+    sources: [ 'http://www.w3c.com/demo/sample.mp3' ],
+    color: 'blue',
+    key: 'W' },
+  { id: 6,
+    name: 'drum7',
+    sources: [ '/local/sounds/drum/d3.ogg' ],
+    color: 'red',
+    key: 'E' },
+  { id: 3,
+    name: 'drum4',
+    sources:
+     [ 'http://www.w3c.com/demo/d4.ogg',
+       'http://www.w3c.com/demo/d4.mp3' ],
+    color: 'blue',
+    key: 'R' },
+  { name: 'myDrum',
+    sources: [ '/local/path/d1.ogg' ],
+    color: 'purple',
+    key: 'l' } ]
+
+
+PART 2: B) 2) Add an object with an auto generated id to the drumsKit array
+
+
+drumsKitCopy = drumsKitCopyData()
+myDrum = new Drum('myDrum', ['/local/path/d1.ogg'], 'purple', 'l')
+addItemWithId(data, myDrum): expect item with auto added highest id at the end of the data
+[ { id: 0,
+    name: 'drum1',
+    sources: [ '/local/sounds/a.wav', '/local/sounds/a.mp3' ],
+    color: '#1478AA',
+    key: 'Q' },
+  { id: 1,
+    name: 'drum2',
+    sources: [ 'http://www.w3c.com/demo/sample.mp3' ],
+    color: 'blue',
+    key: 'W' },
+  { id: 6,
+    name: 'drum7',
+    sources: [ '/local/sounds/drum/d3.ogg' ],
+    color: 'red',
+    key: 'E' },
+  { id: 3,
+    name: 'drum4',
+    sources:
+     [ 'http://www.w3c.com/demo/d4.ogg',
+       'http://www.w3c.com/demo/d4.mp3' ],
+    color: 'blue',
+    key: 'R' },
+  { name: 'myDrum',
+    sources: [ '/local/path/d1.ogg' ],
+    color: 'purple',
+    key: 'l',
+    id: 7 } ]
+
+
+PART 2: C) Remove an object from the array
+
+
+drumsKitCopy = drumsKitCopyData()
+get item with name 'drum2'
+myObject = drumsKitCopy[1]
+removeByObject(drumsKitCopy, myObject)
+console.log(drumsKitCopy): expect item with name 'drum2' is removed from data
+[ { id: 0,
+    name: 'drum1',
+    sources: [ '/local/sounds/a.wav', '/local/sounds/a.mp3' ],
+    color: '#1478AA',
+    key: 'Q' },
+  { id: 6,
+    name: 'drum7',
+    sources: [ '/local/sounds/drum/d3.ogg' ],
+    color: 'red',
+    key: 'E' },
+  { id: 3,
+    name: 'drum4',
+    sources:
+     [ 'http://www.w3c.com/demo/d4.ogg',
+       'http://www.w3c.com/demo/d4.mp3' ],
+    color: 'blue',
+    key: 'R' } ]
+
+
+PART 2: C) Remove an object by id from the array
+
+
+drumsKitCopy = drumsKitCopyData()
+removeById(drumsKitCopy, 6)
+console.log(drumsKitCopy): expect that item with id 6 ('drum7') is removed from data
+[ { id: 0,
+    name: 'drum1',
+    sources: [ '/local/sounds/a.wav', '/local/sounds/a.mp3' ],
+    color: '#1478AA',
+    key: 'Q' },
+  { id: 1,
+    name: 'drum2',
+    sources: [ 'http://www.w3c.com/demo/sample.mp3' ],
+    color: 'blue',
+    key: 'W' },
+  { id: 3,
+    name: 'drum4',
+    sources:
+     [ 'http://www.w3c.com/demo/d4.ogg',
+       'http://www.w3c.com/demo/d4.mp3' ],
+    color: 'blue',
+    key: 'R' } ]
+
+
+PART 2: C) [ADVANCED] Create a remove function which removes an object from the array
+
+
+drumsKitCopy = drumsKitCopyData()
+myObject = drumsKitCopy[1] //get item with id 1 and name 'drum2'
+remove(drumsKitCopy, myObject)
+console.log(drumsKitCopy): expect item with id 1 ('drum2') is removed from data
+[ { id: 0,
+    name: 'drum1',
+    sources: [ '/local/sounds/a.wav', '/local/sounds/a.mp3' ],
+    color: '#1478AA',
+    key: 'Q' },
+  { id: 6,
+    name: 'drum7',
+    sources: [ '/local/sounds/drum/d3.ogg' ],
+    color: 'red',
+    key: 'E' },
+  { id: 3,
+    name: 'drum4',
+    sources:
+     [ 'http://www.w3c.com/demo/d4.ogg',
+       'http://www.w3c.com/demo/d4.mp3' ],
+    color: 'blue',
+    key: 'R' } ]
+
+
+drumsKitCopy = drumsKitCopyData()
+remove(drumsKitCopy, 1) // remove item with id 1 and name 'drum2'
+console.log(drumsKitCopy): expect item with id 1 ('drum2') removed from data
+[ { id: 0,
+    name: 'drum1',
+    sources: [ '/local/sounds/a.wav', '/local/sounds/a.mp3' ],
+    color: '#1478AA',
+    key: 'Q' },
+  { id: 6,
+    name: 'drum7',
+    sources: [ '/local/sounds/drum/d3.ogg' ],
+    color: 'red',
+    key: 'E' },
+  { id: 3,
+    name: 'drum4',
+    sources:
+     [ 'http://www.w3c.com/demo/d4.ogg',
+       'http://www.w3c.com/demo/d4.mp3' ],
+    color: 'blue',
+    key: 'R' } ]
+
+
+=================================================
+PART 3: [ADVANCED] Manipulate
+=================================================
+
+myDrum = new Drum('myDrum', ['/local/path/d1.ogg'], 'purple', 'l')
+console.log(myDrum)
+{ name: 'myDrum',
+  sources: [ '/local/path/d1.ogg' ],
+  color: 'purple',
+  key: 'l' }
+----
+myObject = formatObject(myDrum)
+console.log(myObject)
+{ name: 'myDrum',
+  color: 'purple',
+  key: 'l',
+  url: { path: '/local/path', filenames: [ 'd1.ogg' ] } }
+
+
+drumsKitCopy = drumsKitCopyData()
+console.log(drumsKitCopy)
+[ { id: 0,
+    name: 'drum1',
+    sources: [ '/local/sounds/a.wav', '/local/sounds/a.mp3' ],
+    color: '#1478AA',
+    key: 'Q' },
+  { id: 1,
+    name: 'drum2',
+    sources: [ 'http://www.w3c.com/demo/sample.mp3' ],
+    color: 'blue',
+    key: 'W' },
+  { id: 6,
+    name: 'drum7',
+    sources: [ '/local/sounds/drum/d3.ogg' ],
+    color: 'red',
+    key: 'E' },
+  { id: 3,
+    name: 'drum4',
+    sources:
+     [ 'http://www.w3c.com/demo/d4.ogg',
+       'http://www.w3c.com/demo/d4.mp3' ],
+    color: 'blue',
+    key: 'R' } ]
+----
+data = formatArray(drumsKitCopy)
+console.log(data)
+----
+now also iterate the data items
+console.log(data[0])
+{ id: 0,
+  name: 'drum1',
+  color: '#1478AA',
+  key: 'Q',
+  url: { path: '/local/sounds', filenames: [ 'a.wav', 'a.mp3' ] } }
+----
+console.log(data[1])
+{ id: 1,
+  name: 'drum2',
+  color: 'blue',
+  key: 'W',
+  url: { path: 'http://www.w3c.com/demo', filenames: [ 'sample.mp3' ] } }
+----
+console.log(data[2])
+{ id: 6,
+  name: 'drum7',
+  color: 'red',
+  key: 'E',
+  url: { path: '/local/sounds/drum', filenames: [ 'd3.ogg' ] } }
+----
+console.log(data[3])
+{ id: 3,
+  name: 'drum4',
+  color: 'blue',
+  key: 'R',
+  url:
+   { path: 'http://www.w3c.com/demo',
+     filenames: [ 'd4.ogg', 'd4.mp3' ] } }
+----
+
+Process finished with exit code 0

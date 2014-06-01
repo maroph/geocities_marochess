@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <title>Canavas Paint - A Simple HTML5 Canvas Based Paint Application</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="description" content="simple HTML5 canvas paint application"/>
+    <meta name="keywords" content="HTML5, canvas, JavaScript"/>
+    <meta name="robots" content="all"/>
+    <link rel="stylesheet" href="./css/paint.css"/>
+    <script src="./js/jquery-1.7.2.min.js"></script>
+    <script src="./js/utils.js"></script>
+    <script src="./js/paint.js"></script>
+    <script src="./js/drawingtools.js"></script>
+    <script src="./js/jscolor/jscolor.js"></script>
+    <script>
+        // Run when the DOM is ready
+        $(document).ready(function () {
+            // Create the pseudo object which will handle the main canvas
+            paint = new PaintObject("canvasMain");
+            // Bind events to the canvas
+            paint.bindMultiplexEvents();
+        });
+    </script>
+</head>
+<body>
+<div id="home">
+    <div id="content">
+        <div id="divCanvas">
+            <canvas id="canvasMain">
+                <p>Canvas tag not supported by your browser</p>
+            </canvas>
+        </div>
+    </div>
+    <div id="righColumn">
+        <div id="text">
+            <h4>Canvas Paint</h4>
+            <p>
+                A simple HTML5 Canvas based paint application.
+            </p>
+        </div>
+        <div id="drawCommands">
+            <h6>Pick a tool</h6>
+            <span id="line" class="toolNotSelected" title="draw a line">line</span>
+            <span id="pencil" class="toolSelected" title="draw freehand with the mouse">pencil</span>
+            <span id="rectangle" class="toolNotSelected" title="draw a rectangle">rectangle</span>
+            <span id="circle" class="toolNotSelected" title="draw a circle with center at mouse down">circle</span><br/>
+            <hr/>
+            <span id="ellipse" class="toolNotSelected" title="draw an ellipse with center at first mouse down click">ellipse</span>
+            <span id="gradRectangle" class="toolNotSelected" title="rectangle filled with a rainbow gradient">gradRectangle</span>
+            <span id="image" class="toolNotSelected" title="add an image from URL">image</span>
+            <span id="drawText" class="toolNotSelected" title="add a text">text</span>
+            <span id="triangle" class="toolNotSelected" title="add a triangle:&#10;first mouse down sets 1st corner,&#10;first mouse up the 2nd one,&#10;2nd mouse up closes the triangle">triangle</span>
+            <hr/>
+            <ul>
+                <li>
+                    Fill color:
+                    <!-- if running opera you may try : <input id="fillColor" type="color" value="FFFFFF"/> -->
+                    <input id="fillColor" class="color" value="FFFFFF"/>
+                </li>
+                <li>
+                    Stroke color:
+                    <!--  if running opera you may try :<input id="strokeColor" type="color" value="FFFFFF"/> -->
+                    <input id="strokeColor" class="color" value="000000"/>
+                </li>
+                <li>
+                    <!-- works only in Chrome and Opera, will display a standard input text in Firefox -->
+                    Stroke size: <input id="strokeSize" type="range" min="0" max="20" value="1" step="0.5" style="position:relative;top:6px;"/>
+                </li>
+                <li>
+                    Fill shapes : <input id="fillShapes" type="checkbox" checked/>
+                </li>
+            </ul>
+            <hr/>
+            <div style="display: inline-block; background-color: #e0e0e0; width: 80%; margin: 1px; padding: 3px; border: 1px solid black; opacity: 0.9;">
+            <button id="btnClearCanvas" onclick="paint.clearMainCanvas();">Clear Canvas</button><br/>
+            <a href="#" download="canvas.png" onclick="paint.createImageDataForDownload(this);">Download Canvas as Image</a>
+            </div>
+        </div>
+    </div>
+</div>
+<footer>
+    <p>
+        Back to the <a href="../index.html"> assignment #2 page</a><br/>
+        This code is based on step 6 of the
+        <a href="http://miageprojet2.unice.fr/Intranet_de_Michel_Buffa/HTML5_Tutorial/Tutorial_WWW_2012">HTML5 tutorial for WWW2012: a multi-participant Paint in HTML5</a>.<br/>
+        You can download the tutorial code
+        <a href="http://miageprojet2.unice.fr/@api/deki/files/1757/=Multi_Paint_HTML5_Tutorial.zip">here</a>.
+    </p>
+</footer>
+</body>
+</html>

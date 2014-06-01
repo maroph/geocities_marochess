@@ -1,0 +1,46 @@
+#container {
+	position: relative;
+	display: block;
+	margin-left: auto;margin-right: auto;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	background-color: gray;
+}
+
+
+.block {
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	display: inline-block;
+	cursor:pointer;
+	width:100px;
+	height:100px;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	margin: 10px;
+	line-height: 100px;
+	text-align: center;
+	color: white;
+  	z-index: 2;
+
+}
+.block:hover {
+	box-shadow: 0 0 10px #000000;
+	outline: 1px solid white;
+}
+
+#circle {
+	position: absolute;
+	left: 0;
+    background: gray;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    z-index: 1;
+}

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
+    <title>Samples: HTML5 Video Tag</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="generator" content="PhpStorm 6.0"/>
+    <meta name="author" content="Manfred Rosenboom">
+    <meta name="description" content="video sample">
+    <meta name="keywords" content="HTML5">
+    <meta name="robots" content="all">
+    <link rel="stylesheet" type="text/css" href="../includes/default.css" media="all"/>
+    <script src="../includes/core.js"></script>
+    <script src="../includes/menu.js"></script>
+  </head>
+  <body>
+    <nav>
+        <header style="display: none;">
+            <hgroup>
+                <h1>Navigation</h1>
+            </hgroup>
+        </header>
+        <div id="navMenu"></div>
+        <noscript>
+            <ul class="menu">
+                <li><a style="color:black; background-color: red;">Base Menu (no JavaScript)</a></li>
+                <li><a href="./index.html">Home</a></li>
+                <li><a href="./samples/index.html">Samples</a></li>
+                <li><a href="./tools/index.html">Tools</a></li>
+            </ul>
+        </noscript>
+    </nav>
+
+    <header>
+      <h1>Samples: HTML5 Video Tag</h1>
+    </header>
+    <main>
+
+      <section>
+        <header>
+            <hgroup>
+                <h1>HTML5 Video Player</h1>
+            </hgroup>
+        </header>
+		<p>
+		Song: <a href="http://musiclub.web.cern.ch/MusiClub/bands/cernettes/videos/collider.html" target="_blank">Collider</a>  performed by the <a href="http://musiclub.web.cern.ch/MusiClub/bands/cernettes/" target="blank">Les Horribles Cernettes</a>.	
+		</p>
+		<video id="video" controls="controls" preload="metadata" poster="./LHC2.jpg" width="450" height="360" style="border:2px solid black;background-color: #f0f0f0;">
+          <source src="./LHC_Collider.ogv" type="video/ogg"/>
+          <source src="./LHC_Collider.mp4" type="video/mp4"/>
+          <track src="./LHC_Collider_en.vtt" kind="subtitles" srclang="en" label="English"/>
+          Your browser does not support the HTML5 &lt;video&gt; element.
+        </video>
+        <canvas  width="450" height="360" title="Click here for a snapshot of the video" style="border: 2px solid black;"></canvas><br/>
+          <button onclick="document.getElementById('video').play()">Start</button>
+          <button onclick="document.getElementById('video').pause()">Stop</button>
+          <input type="button" id="btnToggleLyrics" onclick="toggleLyrics()" value="Show lyrics"/>
+          <a href="#" download="snapshot.png" onclick="createImageData(this);">download snapshot</a><br/>
+		<hr style="margin-left: 0px; text-align: left; width: 400px;">
+		<p>Code in use:</p>
+		<pre>
+&lt;video controls=&quot;controls&quot; preload=&quot;metadata&quot; poster=&quot;./LHC2.jpg&quot; width=&quot;450&quot; height=&quot;360&quot; style=&quot;border:2px solid black;background-color: #f0f0f0;&quot;&gt;
+  &lt;source src=&quot;./LHC_Collider.ogv&quot; type=&quot;video/ogg&quot;/&gt;
+  &lt;source src=&quot;./LHC_Collider.mp4&quot; type=&quot;video/mp4&quot;/&gt;
+  &lt;track src=&quot;./LHC_Collider_en.vtt&quot; kind=&quot;subtitles&quot; srclang=&quot;en&quot; label=&quot;English&quot;/&gt;
+  Your browser does not support the video tag.
+&lt;/video&gt;
+		</pre>
+      </section>
+      <section>
+		<p>
+		Courtsey by <a href="http://www.cernettes.com/" rel="copyright" target="blank">Les Horribles Cernettes</a>.
+		</p>
+        <p>
+          For further details have a look at the
+          <a href="http://www.w3.org/2010/05/video/mediaevents.html">W3C: HTML5 Video Events and API</a>
+          page.
+        </p>
+        <p>
+          <b>Hint: </b> the download attribute in the "download snapshot" link is brand new and will
+            give an error in the W3C HTML validator.
+        </p>
+      </section>
+
+    </main>
+    <footer>
+      <p>
+        <span class="noprint nomobile">Validate <a href="http://validator.w3.org/check/referer" target="_blank">HTML</a> , Validate <a href="http://jigsaw.w3.org/css-validator/check/referer" target="_blank">CSS</a><br/></span>
+        Last updated: <time datetime="2013-03-29T15:35:00+0100">Fri, 29 Mar 2013 15:35:00 CET</time><br/>        <a href="../copyright.html">Copyright</a> Manfred Rosenboom
+      </p>
+    </footer>
+
+    <script>
+        var video           = document.getElementById('video');
+        var btnToggleLyrics = document.getElementById('btnToggleLyrics');
+        var textTrack       = null;
+
+        if (video.textTracks) {
+            if (video.textTracks) {
+                textTrack = video.textTracks[0];
+            }
+        }
+        if (textTrack === null) {
+            btnToggleLyrics.disable = 1;
+            btnToggleLyrics.style.display = 'none';
+        }
+
+        var canvas = document.querySelector('canvas');
+        var ctx = canvas.getContext('2d');
+
+        ctx.fillText("Click here for a snapshot of the video", 120, 170);
+
+        function snapshot() {
+            ctx.drawImage(video, 0,0, canvas.width, canvas.height);
+        }
+        canvas.addEventListener('click', snapshot, false);
+
+        function createImageData(atag) {
+            var canvas = document.querySelector('canvas');
+            atag.href = canvas.toDataURL();
+        }
+
+        function toggleLyrics() {
+            if (textTrack === null) {
+                return;
+            }
+            // text track off
+            if (textTrack.mode === 'disabled')   {
+                textTrack.mode = 'showing';
+                btnToggleLyrics.value = 'No lyrics';
+            } else {
+                textTrack.mode = 'disabled';
+                btnToggleLyrics.value = 'Show lyrics';
+            }
+        }
+    </script>
+    <script>
+        var nodeNavMenu = document.getElementById('navMenu');
+        nodeNavMenu.innerHTML = addMenu();
+    </script>
+  </body>
+</html>

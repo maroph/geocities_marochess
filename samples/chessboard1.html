@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
+  <title>GeoCities:marochess:Samples:Chessboard Canvas</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="generator" content="PhpStorm 6.0"/>
+  <meta name="author" content="Manfred Rosenboom"/>
+  <meta name="description" content=""/>
+  <meta name="keywords" content="HTML5"/>
+  <meta name="robots" content="all"/>
+  <link rel="stylesheet" href="../includes/default.css" media="all"/>
+  <script src="../includes/core.js"></script>
+  <script src="../includes/menu.js"></script>
+</head>
+<body>
+    <nav>
+      <header style="display: none;">
+        <hgroup>
+           <h1>Navigation</h1>
+        </hgroup>
+      </header>
+      <div id="navMenu"></div>
+<noscript>
+<ul class="menu">
+<li><a style="color:black; background-color: red;">Base Menu (no JavaScript)</a></li>
+<li><a href="../index.html">Home</a></li>
+<li><a href="../samples/index.html">Samples</a></li>
+<li><a href="../tools/index.html">Tools</a></li>
+</ul>
+</noscript>
+    </nav>
+
+    <header>
+      <h1>Samples: Chessboard Canvas</h1>
+    </header>
+    <main>
+
+    <section>
+      <header>
+        <hgroup>
+          <h1>Chessboard</h1>
+          <h2>Draw a simple chessboard with some pieces on a canvas</h2>
+        </hgroup>
+      </header>
+      <p>
+          <canvas id="chessboardCanvas" width="445" height="445" style="border:1px solid #000;">
+              Your browser does not support the HTML5 canvas tag.
+          </canvas>
+      </p>
+    </section>
+
+    </main>
+    <footer>
+      <p>
+        <span class="noprint nomobile">Validate <a href="http://validator.w3.org/check/referer" target="_blank">HTML</a> , Validate <a href="http://jigsaw.w3.org/css-validator/check/referer" target="_blank">CSS</a><br/></span>
+        Last updated: <time datetime="2013-03-28T16:26:00+0100">Thu, 28 Mar 2013 16:26:00 CET</time><br/>
+        <a href="./copyright.html" rel="copyright">Copyright</a> Manfred Rosenboom
+      </p>
+    </footer>
+
+    <script>
+        var imgMerida = new Image();
+        imgMerida.src = "./chesspieces/amerida.gif";
+
+        var imgMeridaBlack = new Image();
+        imgMeridaBlack.src = "./chesspieces/merida_black.png";
+
+        var imgMeridaWhite = new Image();
+        imgMeridaWhite.src = "./chesspieces/merida_white.png";
+
+        var imgBB     = new Image(38,38);
+        imgBB.src = "./chesspieces/bb.gif";
+
+        var imgBK     = new Image(38,38);
+        imgBK.src = "./chesspieces/bk.gif";
+
+        var imgBN     = new Image(38,38);
+        imgBN.src = "./chesspieces/bn.gif";
+
+        var imgBP     = new Image(38,38);
+        imgBP.src = "./chesspieces/bp.gif";
+
+        var imgBQ     = new Image(38,38);
+        imgBQ.src = "./chesspieces/bq.gif";
+
+        var imgBR     = new Image(38,38);
+        imgBR.src = "./chesspieces/br.gif";
+
+        var imgWB     = new Image(38,38);
+        imgWB.src = "./chesspieces/wb.gif";
+
+        var imgWK     = new Image(38,38);
+        imgWK.src = "./chesspieces/wk.gif";
+
+        var imgWN     = new Image(38,38);
+        imgWN.src = "./chesspieces/wn.gif";
+
+        var imgWP     = new Image(38,38);
+        imgWP.src = "./chesspieces/wp.gif";
+
+        var imgWQ     = new Image(38,38);
+        imgWQ.src = "./chesspieces/wq.gif";
+
+        var imgWR     = new Image(38,38);
+        imgWR.src = "./chesspieces/wr.gif";
+
+        var canvas = document.getElementById("chessboardCanvas");
+        var canvasWidth      = canvas.clientWidth;
+        var canvasHeight     = canvas.clientHeight;
+        var canvasOffsetLeft = canvas.offsetLeft;
+        var canvasOffsetTop  = canvas.offsetTop;
+        var ctx = canvas.getContext("2d");
+
+        // draw the whole board (chessboard plus boarder) in a background colour
+        ctx.fillStyle="#c0c0c0";
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+        // draw a border around the chess board
+        ctx.rect(20, 20, 400, 400);
+        ctx.lineWidth = 1;
+        ctx.strokeStyle = '#669966';
+        ctx.stroke();
+
+        // draw the dark squares
+        ctx.fillStyle="#669966";
+        var left = 20;
+        for(var a=0;a<8;a++) {
+            for(var i=0; i<8;i+=2) {
+                startX = i * 50;
+                if(a%2==0)
+                   startX = (i+1) * 50;
+                ctx.fillRect(startX + left,(a*50) + 20 ,50,50);
+            }
+        }
+
+        // draw the light squares
+        ctx.fillStyle="#ffffff";
+        var left = 20;
+        for(var a=0;a<8;a++) {
+            for(var i=0; i<8;i+=2) {
+                startX = i * 50;
+                if(a%2!=0)
+                    startX = (i+1) * 50;
+                ctx.fillRect(startX + left,(a*50) + 20 ,50,50);
+            }
+        }
+
+        // label the chessboard on the boarder
+        ctx.fillStyle="#000000";
+        ctx.font = 'italic 18px Calibri';
+        var alpha = ['a','b','c','d','e','f','g','h'];
+        for(var i=0;i<8;i++) {
+            ctx.fillText(alpha[i], 40 + (i*50),  15);
+            ctx.fillText(alpha[i], 40 + (i*50),  435);
+        }
+        var num = 8;
+        for(var i=0;i<8;i++) {
+            ctx.fillText(num, 5,  50 + (i*50));
+            ctx.fillText(num, 425,  50 + (i*50));
+            num--;
+        }
+
+        function canvasClick(event) {
+            var x = event.clientX - canvasOffsetLeft;
+            var y = event.clientY - canvasOffsetTop;
+            if ((x < 20) || (y < 50)) {
+                return;
+            }
+            if (x > 420) {
+                return;
+            }
+            if (y > 450) {
+                return;
+            }
+            var posX = Math.floor((x - 20) / 50);
+            var posY = Math.floor((y - 40) /50);
+            if (posX > 7) posX = 7;
+            if (posY > 7) posY = 7;
+            var alpha = ['a','b','c','d','e','f','g','h'];
+            var nums = ['8','7','6','5','4','3','2','1'];
+            alert('(x:' + posX + ',y:' + posY + '): ' + alpha[posX] + nums[posY]);
+        }
+
+        function pageLoaded() {
+            var canvas = document.getElementById("chessboardCanvas");
+            var ctx = canvas.getContext("2d");
+            ctx.drawImage(imgBK, 25 + 4*50, 28);
+            ctx.drawImage(imgWK, 25 + 4*50, 28 + 7*50);
+            //ctx.drawImage(imgMerida, 2, 45, 45, 45, 25 + 5*50, 28, 45, 45);
+            //ctx.drawImage(imgMerida, 2, 0, 45, 45, 25 + 5*50, 28 + 7*50, 45, 45);
+            //ctx.drawImage(imgMerida, 47, 0, 45, 45, 25 + 7*50, 28 + 7*50, 45, 45);
+
+            //ctx.drawImage(imgMeridaWhite, 5*111, 0, 111, 111, 25 + 5*50, 28 + 7*50, 45, 45);
+            //ctx.drawImage(imgMeridaWhite, 4*111, 0, 111, 111, 25 + 6*50, 28 + 7*50, 45, 45);
+
+/*
+img     specifies the image, canvas, or video element to use
+sx 	    Optional. The x coordinate where to start clipping
+sy 	    Optional. The y coordinate where to start clipping
+swidth 	Optional. The width of the clipped image
+sheight Optional. The height of the clipped image
+x 	    The x coordinate where to place the image on the canvas
+y 	    The y coordinate where to place the image on the canvas
+width 	Optional. The width of the image to use (stretch or reduce the image)
+height 	Optional. The height of the image to use (stretch or reduce the image)
+*/
+            canvas.addEventListener("click", canvasClick, false);
+        }
+
+        window.addEventListener("load", pageLoaded, false);
+    </script>
+<script>
+var nodeNavMenu = document.getElementById('navMenu');
+nodeNavMenu.innerHTML = addMenu();
+</script>
+</body>
+</html>

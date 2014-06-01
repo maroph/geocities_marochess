@@ -1,0 +1,179 @@
+@charset "UTF-8";
+/*
+ * Author      : Manfred Rosenboom
+ * Site        : http://www.geocities.ws/marochess/w3c_training/mobileWebApps/assignment2/
+ * Last Update : Sun, 2 Feb 2014 12:07:00 +0100
+ * License     : Creative Commons Attribution 4.0 International License
+ *               http://creativecommons.org/licenses/by/4.0/
+ * =============================================================================
+ */
+html {
+    min-width: 250px;
+}
+body {
+    margin: 0;
+    color: black;
+    background-color: white;
+    font-size: 14px;
+    font-style: normal; font-family: Arial, Helvetica, Verdana, sans-serif;
+    min-width: 260px;
+}
+
+header, footer {
+    clear:both;
+    background-color: #f6e6b4;
+    padding: 10px;
+    border: 2px solid #c0c0c0; border-radius: 12px;
+    display: block;
+}
+
+header {
+    margin: 5px;
+}
+
+header>h1 {
+    font-size: 20px;
+    text-shadow: 0 0 2px #333;
+}
+header>h2 {
+    font-size: 16px;
+    color:  #900;
+    margin-left: 0;
+}
+
+footer {
+    margin: 20px 5px 5px 5px;
+}
+
+section {
+    clear:both;
+    padding: 10px;
+}
+
+section>ul {
+    margin: 0;
+    list-style-type:none;
+}
+
+#newEntry {
+    display: none;
+    background-color: #f6e6b4;
+    width: 90%;
+    margin: 0 0 0 10px;
+    border: 2px solid #c0c0c0; border-radius: 12px;
+}
+#title {
+    width: 90%;
+}
+#text {
+    width: 90%;
+    height: 100px;
+}
+
+#addEntry {
+    float: left;
+    width: 120px;
+    padding: 10px;
+    font-weight: bold;
+    background-color: #f6e6b4;
+    border: 2px solid #c0c0c0; border-radius: 12px;
+    cursor: pointer;
+}
+
+#expandCollapse {
+    margin-left: 150px;
+    width: 150px;
+}
+
+#btnExpandCollapse {
+    background-color: #f6e6b4;
+    padding: 9px;
+    border: 2px solid #c0c0c0; border-radius: 12px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+#entries {
+    width: 90%;
+}
+#entries>article>h1 {
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+}
+.time {
+    margin: 0 0 0 5px;
+    font-style: italic;
+    font-weight: normal;
+    font-size: 14px;
+}
+
+.show {
+    font-weight: normal;
+    font-size: 14px;
+    padding: 1px;
+    border: 1px solid black; border-radius: 0;
+    background-color: #f0f0f0;
+    -moz-transition: opacity 1s;
+    -o-transition: opacity 1s;
+    -webkit-transition: opacity 1s;
+    transition: opacity 1s;
+    opacity: 1;
+}
+
+.hide {
+    font-weight: normal;
+    font-size: 1px;
+    padding: 0;
+    opacity: 0;
+    line-height: 0;
+    height: 0;
+}
+
+
+@media screen and (max-width: 280px) {
+    #expandCollapse {
+        display: none;
+    }
+}
+
+
+@media screen and (max-width: 400px) {
+    header>h2 {
+        display: none;
+    }
+    footer {
+        display: none;
+    }
+    #expandCollapse {
+        float: left;
+        margin-left: 0;
+    }
+    #btnExpandCollapse {
+    }
+    #text {
+        width: 90%;
+        height: 50px;
+    }
+    #browser {
+        display: none;
+    }
+}
+
+
+@media screen and (min-width: 800px) {
+    header>h2 {
+        margin-left: 20px;
+        -webkit-transform: rotate(-5deg);
+        -webkit-transform-origin: 0% 0%;
+        -moz-transform: rotate(-5deg);
+        -moz-transform-origin: 0% 0%;
+        -o-transform: rotate(-5deg);
+        -o-transform-origin: 0% 0%;
+        -ms-transform: rotate(-5deg);
+        -ms-transform-origin: 0% 0%;
+        transform: rotate(-5deg);
+        transform-origin: 0% 0%;
+        text-shadow: 1px 1px 1px #fff;
+    }
+}

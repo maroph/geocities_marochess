@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>My Diary</title>
+<meta name="author" content="Manfred Rosenboom"/>
+<meta name="generator" content="PhpStorm 7.1.1"/>
+<meta name="description" content=""/>
+<meta name="keywords" content=""/>
+<meta name="robots" content="all"/>
+<link rel="stylesheet" href="./diary.css" media="all"/>
+<link rel="stylesheet" href="./print.css" media="print"/>
+</head>
+
+<body>
+<header>
+<h1>MyDiary</h1>
+<h2>for all that's worth writing down!!!</h2>
+</header>
+
+<section id="newEntry">
+    <ul>
+        <li><label for="title">Title</label><br/>
+            <input type="text" id="title"/></li>
+        <li><label for="text">Text</label><br/>
+            <textarea id="text"></textarea></li>
+       <li><button id="btnOkay">Ok</button> <button id="btnCancel">Cancel</button></li>
+    </ul>
+</section>
+
+<section>
+<div id="addEntry">Add a new entry</div>
+<div id="documentation">
+Welcome to the MyDiary application<br/>
+Click &quot;<b>Add a new entry</b>&quot; to the left and you'll be on your way to write the most awesome
+diary of your entire life.
+</div>
+</section>
+
+<section>
+<button id="btnExpand">Expand</button> <button id="btnCollapse">Collapse</button>
+</section>
+
+<section id="entries">
+</section>
+
+<hr/>
+<section>
+<p>
+Supported minimal browser versions (<a href="http://caniuse.com/">Can I Use</a>):<br/>
+Android 4.0, Chrome 30, Firefox 24, IE9, Opera 16, Safari 5.0
+</p>
+</section>
+
+<footer>
+<span class="noprint">Validate <a href="http://validator.w3.org/check/referer" target="_blank">HTML</a> , Validate <a href="http://jigsaw.w3.org/css-validator/check/referer" target="_blank">CSS</a><br/></span>
+Last updated: <time datetime="2014-01-26T13:02:00+0100">Sun, 26 Jan 2014 13:02:00 CET</time><br/>
+<a href="../../../copyright.html" rel="copyright">Copyright</a> Manfred Rosenboom
+</footer>
+<script src="./diary.js"></script>
+<script>
+</script>
+</body>
+</html>

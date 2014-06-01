@@ -1,0 +1,16 @@
+CACHE MANIFEST
+#Last updated: Sun, 28 Apr 2013 15:10:00 CEST
+#AddType text/cache-manifest .appcache
+
+CACHE:
+clock.html
+clock.css
+clock.js
+
+FALLBACK:
+
+NETWORK:
+*
+
+#SETTINGS:
+#prefer-online

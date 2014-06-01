@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <title>Get JavaScript Key Code</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="generator" content="PhpStorm 7.1.3"/>
+    <meta name="author" content="Manfred Rosenboom"/>
+    <meta name="description" content=""/>
+    <meta name="keywords" content=""/>
+    <meta name="robots" content="all"/>
+    <link rel="stylesheet" href="./style.css"/>
+    <style>
+        #res {
+            width:50px; height:50px;
+            background: black;
+            color:white;
+            line-height: 50px;
+            text-align: center;
+
+        }
+    </style>
+</head>
+
+<body>
+<header>
+    <h1>Get JavaScript Key Code</h1>
+</header>
+<main>
+    <section>
+        <article>
+            <div id="res"></div>
+            <div>Press a key on your keyboard</div>
+        </article>
+    </section>
+</main>
+<footer>
+    <p>
+        Validate <a href="http://validator.w3.org/check/referer" target="_blank">HTML</a> , Validate <a
+            href="http://jigsaw.w3.org/css-validator/check/referer" target="_blank">CSS</a><br/>
+        Last updated:
+        <time datetime="2014-04-05T18:09:00+0200">Sat, 5 Apr 2014 18:09:00 CEST</time>
+        <br/>
+        <a href="./copyright.html">Copyright</a> Manfred Rosenboom
+    </p>
+</footer>
+<script>
+    //this page is based on http://jsbin.com/afOmODIc/1/edit
+    var res = document.getElementById('res');
+    document.addEventListener('keydown',handleKeyDown,true);
+    function handleKeyDown(event) {
+        //var keyCode = event.which || event.keyCode;
+        var keyCode = ('which' in event) ? event.which : event.keyCode;
+        //console.log(keyCode);
+        res.innerHTML = keyCode;
+//        alert(String.fromCharCode(keyCode));
+    }
+</script>
+</body>
+</html>

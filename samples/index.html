@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
+    <title>GeoCities:marochess:Samples</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="author" content="Manfred Rosenboom"/>
+    <meta name="description" content=""/>
+    <meta name="keywords" content="HTML5"/>
+    <meta name="robots" content="all"/>
+    <link rel="stylesheet" type="text/css" href="../includes/default.css" media="all"/>
+    <script src="../includes/core.js"></script>
+    <script src="../includes/menu.js"></script>
+  </head>
+  <body>
+    <nav>
+        <header style="display: none;">
+            <hgroup>
+                <h1>Navigation</h1>
+            </hgroup>
+        </header>
+        <div id="navMenu"></div>
+        <noscript>
+            <ul class="menu">
+                <li><a style="color:black; background-color: red;">Base Menu (no JavaScript)</a></li>
+                <li><a href="./index.html">Home</a></li>
+                <li><a href="./samples/index.html">Samples</a></li>
+                <li><a href="./tools/index.html">Tools</a></li>
+            </ul>
+        </noscript>
+    </nav>
+
+    <header>
+      <h1>Samples</h1>
+    </header>
+
+    <section>
+      <h1>Sample Pages</h1>
+      <ul>
+        <li><a href="./tooltip.html">A Simple CSS Based Tooltip System</a></li>
+        <li><a href="./audio.html">HTML5 Audio Tag</a></li>
+        <li><a href="./chessboard.html">HTML5 Canvas Tag: Chessboard</a></li>
+        <li><a href="./video.html">HTML5 Video Tag</a></li>
+        <li><a href="./webcam.html">HTML5 Video Tag:  Web Cam Streaming</a></li>
+      </ul>
+    </section>
+
+    <footer>
+      <p>
+        <span class="noprint nomobile">Validate <a href="http://validator.w3.org/check/referer" target="_blank">HTML</a> , Validate <a href="http://jigsaw.w3.org/css-validator/check/referer" target="_blank">CSS</a><br/></span>
+        Last updated: <time datetime="2013-03-31T17:10:00+0200">Sun, 31 Mar 2013 17:10:00 CEST</time><br/>
+        <a href="#" onclick="validatePage();">Validate page</a><br/>
+      </p>
+    </footer>
+    <script>
+        var nodeNavMenu = document.getElementById('navMenu');
+        nodeNavMenu.innerHTML = addMenu();
+    </script>
+  </body>
+</html>

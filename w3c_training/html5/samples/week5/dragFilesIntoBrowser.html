@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <title>Drag files into the browser</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="generator" content="PhpStorm 6.0"/>
+    <meta name="author" content="Manfred Rosenboom"/>
+    <meta name="description" content=""/>
+    <meta name="keywords" content=""/>
+    <meta name="robots" content="all"/>
+    <link rel="stylesheet" href="../../style.css"/>
+    <style>
+        #drop {
+            min-height: 150px;
+            width: 250px;
+            border: 1px solid blue;
+            margin: 10px;
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+<header>
+    <h1>Drag files into the browser</h1>
+</header>
+<main>
+
+<section>
+    <article>
+        <p>
+        This code is based on the following sample code:
+        <a href="http://www.htmlgoodies.com/print/HTML5/javascript/drag-files-into-the-browser-from-the-desktop-HTML5.html">http://www.htmlgoodies.com/print/HTML5/javascript/drag-files-into-the-browser-from-the-desktop-HTML5.html</a>
+        </p>
+    </article>
+
+    <article>
+        <div id="status">Drag the files from a folder to a selected area ...</div>
+
+        <div id="drop">Drop files here.</div>
+        <div id="list"></div>
+    </article>
+</section>
+
+</main>
+<footer>
+    <p>
+        Validate <a href="http://validator.w3.org/check/referer" target="_blank">HTML</a> , Validate <a
+            href="http://jigsaw.w3.org/css-validator/check/referer" target="_blank">CSS</a><br/>
+        Last updated:
+        <time datetime="2013-04-15T18:24:00+0200">Mon, 15 Apr 2013 18:24:00 CEST</time>
+        <br/>
+        <a href="../../copyright.html">Copyright</a> Manfred Rosenboom
+    </p>
+</footer>
+<script>
+function addEventHandler(obj, evt, handler) {
+    if(obj.addEventListener) {
+        // W3C method
+        obj.addEventListener(evt, handler, false);
+    } else if(obj.attachEvent) {
+        // IE method.
+        obj.attachEvent('on'+evt, handler);
+    } else {
+        // Old school method.
+        obj['on'+evt] = handler;
+    }
+}
+
+Function.prototype.bindToEventHandler = function bindToEventHandler() {
+    var handler = this;
+    var boundParameters = Array.prototype.slice.call(arguments);
+    //create closure
+    return function(e) {
+        e = e || window.event; // get window.event if e argument missing (in IE)
+        boundParameters.unshift(e);
+        handler.apply(this, boundParameters);
+    }
+};
+
+if(window.FileReader) {
+    addEventHandler(window, 'load', function() {
+        var status = document.getElementById('status');
+        var drop   = document.getElementById('drop');
+        var list   = document.getElementById('list');
+
+        function cancel(e) {
+            if (e.preventDefault) { e.preventDefault(); }
+            return false;
+        }
+
+        // Tells the browser that we *can* drop on this target
+        addEventHandler(drop, 'dragover', cancel);
+        addEventHandler(drop, 'dragenter', cancel);
+    });
+} else {
+    document.getElementById('status').innerHTML = 'Your browser does not support the HTML5 FileReader.';
+}
+
+addEventHandler(drop, 'drop', function (e) {
+    e = e || window.event; // get window.event if e argument missing (in IE)
+    if (e.preventDefault) { e.preventDefault(); } // stops the browser from redirecting off to the image.
+
+    var dt    = e.dataTransfer;
+    var files = dt.files;
+    for (var i=0; i<files.length; i++) {
+        var file = files[i];
+        var reader = new FileReader();
+
+        //attach event handlers here...
+
+        addEventHandler(reader, 'loadend', function(e, file) {
+            var bin           = this.result;
+            var newFile       = document.createElement('div');
+            newFile.innerHTML = 'Loaded : '+file.name+' size '+file.size+' Bytes';
+            list.appendChild(newFile);
+            var fileNumber = list.getElementsByTagName('div').length;
+            status.innerHTML = fileNumber < files.length
+                    ? 'Loaded 100% of file '+fileNumber+' of '+files.length+'...'
+                    : 'Done loading. processed '+fileNumber+' files.';
+
+            var img = document.createElement("img");
+            img.file = file;
+            img.src = bin;
+            list.appendChild(img);
+        }.bindToEventHandler(file));
+
+        reader.readAsDataURL(file);
+    }
+    return false;
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,14 @@
+AddType text/cache-manifest .appcache
+<IfModule mod_expires.c>
+   # Enable expirations.
+   ExpiresActive On
+
+   # Cache all files for 2 weeks after access (A).
+   # (14 * 24 * 60 * 60 seconds)
+   ExpiresDefault A1209600
+
+  # disable caching of the appcache file
+  <FilesMatch (\.appcache)$>
+     ExpiresActive Off
+  </FilesMatch>
+ </IfModule>

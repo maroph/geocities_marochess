@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
+    <title>GeoCities:marochess:Tools: Escape Text for HTML</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="author" content="Manfred Rosenboom"/>
+    <meta name="description" content=""/>
+    <meta name="keywords" content="HTML5"/>
+    <meta name="robots" content="all"/>
+    <link rel="stylesheet" href="../includes/default.css" media="all"/>
+    <script src="../includes/core.js"></script>
+    <script src="../includes/menu.js"></script>
+    <script>
+function clearTextArea() {
+  var formEscape4HTML = document.getElementById("formEscape4HTML");
+  formEscape4HTML.rawText.value     = '';
+  formEscape4HTML.escapedText.value = '';
+  formEscape4HTML.rawText.focus();
+}
+function escapeText4HTML() {
+  var formEscape4HTML = document.getElementById("formEscape4HTML");
+  var rawText     = new String(formEscape4HTML.rawText.value);
+  var escapedText = new String();
+  formEscape4HTML.escapedText.value = '';
+  if (rawText.length == 0) {
+    formEscape4HTML.rawText.focus();
+    return;
+  }
+
+  var i = 0;
+  var lng = rawText.length;
+  for (i = 0; i < lng; i += 1) {
+    var c = rawText.substring(i, i + 1);
+    switch (c) {
+	  case '<' : c = "&lt;";    break;
+  	  case '>' : c = "&gt;";    break;
+ 	  case '"' : c = "&quot;";  break;
+ 	  case '&' : c = "&amp;";   break;
+ 	  case 'Ä' : c = "&Auml;";  break;
+      case 'ä' : c = "&auml;";  break;
+ 	  case 'Ö' : c = "&Ouml;";  break;
+      case 'ö' : c = "&ouml;";  break;
+ 	  case 'Ü' : c = "&Uuml;";  break;
+      case 'ü' : c = "&uuml;";  break;
+      case 'ß' : c = "&szlig;"; break;
+	  default  :
+	             var charCode = c.charCodeAt(0);
+                 if ((charCode < 32) || (charCode > 127)) {
+                     if (charCode == 10) {
+                         c = '\n';
+                     } else {
+	                     c = "&#" + charCode + ";";
+                     }
+                 }
+	  }
+    escapedText += c;
+  }
+  formEscape4HTML.escapedText.value = escapedText;
+}	
+    </script>
+  </head>
+  <body onload="setFocusToTextArea()">
+    <nav>
+        <header style="display: none;">
+            <hgroup>
+                <h1>Navigation</h1>
+            </hgroup>
+        </header>
+        <div id="navMenu"></div>
+        <noscript>
+            <ul class="menu">
+                <li><a style="color:black; background-color: red;">Base Menu (no JavaScript)</a></li>
+                <li><a href="./index.html">Home</a></li>
+                <li><a href="./samples/index.html">Samples</a></li>
+                <li><a href="./tools/index.html">Tools</a></li>
+            </ul>
+        </noscript>
+    </nav>
+
+    <header>
+      <h1>Tools: Escape Text for HTML</h1>
+    </header>
+    <main>
+
+      <section>
+        <form id="formEscape4HTML">
+          <p>Use keyboard or clipboard to enter data:</p>
+          <textarea name="rawText" rows="15" cols="80" wrap="soft" style="border:2px solid black;background-color:white;"></textarea><br>
+          <input value="  Escape Test for HTML  " onclick="escapeText4HTML()" type="button">
+          <input value="  Clear Text Area  " onclick="clearTextArea()" type="button"><br>
+          <textarea name="escapedText" rows="15" cols="80" wrap="soft" readonly="readonly"
+              style="border:2px solid black;background-color:#fafafa;"></textarea>
+        </form>
+      </section>
+      <noscript>
+	    <p><b>JavaScript is deactivated</b></p>
+      </noscript>
+
+    <script>
+function setFocusToTextArea() {
+  var formEscape4HTML = document.getElementById("formEscape4HTML");
+  formEscape4HTML.rawText.focus();
+}
+    </script>
+
+    </main>
+    <footer>
+      <p>
+        <span class="noprint">Validate <a href="http://validator.w3.org/check/referer" target="_blank">HTML</a> , Validate <a href="http://jigsaw.w3.org/css-validator/check/referer" target="_blank">CSS</a><br/></span>
+        Last updated: <time datetime="2013-03-24T16:20:00+0100">Sun, 24 Mar 2013 16:20:00 CET</time><br/>
+        <a href="../copyright.html">Copyright</a> Manfred Rosenboom
+      </p>
+    </footer>
+<script>
+var nodeNavMenu = document.getElementById('navMenu');
+nodeNavMenu.innerHTML = addMenu();
+</script>
+  </body>
+</html>

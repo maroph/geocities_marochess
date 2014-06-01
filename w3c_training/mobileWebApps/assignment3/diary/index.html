@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>My Diary</title>
+<meta name="author" content="Manfred Rosenboom"/>
+<meta name="generator" content="PhpStorm 7.1.1"/>
+<meta name="description" content=""/>
+<meta name="keywords" content=""/>
+<meta name="robots" content="all"/>
+<link rel="stylesheet" href="./diary.css" media="all"/>
+<link rel="stylesheet" href="./print.css" media="print"/>
+</head>
+
+<body>
+<header>
+<h1>MyDiary</h1>
+</header>
+
+<section id="newEntry">
+    <ul>
+        <li><label for="title">Title</label><br/>
+            <input type="text" id="title"/></li>
+        <li><label for="text">Text</label><br/>
+            <textarea id="text"></textarea></li>
+        <li><label for="location">Location</label><br/>
+            <input type="text" id="location" readonly="readonly"/> <button id="btnLocation" title="add location"></button><button id="btnSnapshot" title="add camera snapshot (PC: Firefox/Chrome)"></button><button id="btnUpload" title="upload picture"></button></li>
+       <li><button id="btnOkay" title="save entry"></button> <button id="btnCancel" title="discard entry"></button></li>
+    </ul>
+</section>
+
+<section>
+<div id="addEntry" title="Click here to add a new entry to the diary">Add a new entry</div>
+<div id="expandCollapse"><button id="btnExpandCollapse" title="Expand/Collapse all entry texts">Expand Entries</button></div>
+</section>
+
+<section>
+</section>
+
+<section id="entries">
+</section>
+
+<hr/>
+<section id="browser">
+<p>
+Supported minimal browser versions (<a href="http://caniuse.com/">Can I Use</a>):<br/>
+Android 4.0, Chrome 30, Firefox 24, IE9, Opera 16, Safari 5.0
+</p>
+</section>
+
+<footer>
+<span class="noprint">Validate <a href="http://validator.w3.org/check/referer" target="_blank">HTML</a> , Validate <a href="http://jigsaw.w3.org/css-validator/check/referer" target="_blank">CSS</a><br/></span>
+Last updated: <time datetime="2014-02-16T13:11:00+0100">Sun, 16 Feb 2014 13:11:00 CET</time><br/>
+<a href="../../../copyright.html" rel="copyright">Copyright</a> Manfred Rosenboom
+</footer>
+<script src="./diary.js"></script>
+</body>
+</html>

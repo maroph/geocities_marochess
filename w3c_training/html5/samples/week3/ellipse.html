@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
+  <title>Canvas:Draw an Ellipse</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="generator" content="PhpStorm 6.0"/>
+  <meta name="author" content="Manfred Rosenboom"/>
+  <meta name="description" content=""/>
+  <meta name="keywords" content="HTML5"/>
+  <meta name="robots" content="all"/>
+  <link rel="stylesheet" href="../../style.css" media="all"/>
+</head>
+<body>
+    <header>
+      <h1>Canvas: Draw an Ellipse</h1>
+    </header>
+    <main>
+
+    <section>
+      <p>
+         Draw an Ellipse: Click left mouse button to set the center of the ellipse.
+      </p>
+      <p>
+          <canvas id="canvas" width="600" height="400" style="border: 1px solid black; cursor: crosshair;">
+      </p>
+    </section>
+
+    </main>
+    <footer>
+      <p>
+        <span class="noprint nomobile">Validate <a href="http://validator.w3.org/check/referer" target="_blank">HTML</a> , Validate <a href="http://jigsaw.w3.org/css-validator/check/referer" target="_blank">CSS</a><br/></span>
+        Last updated: <time datetime="2013-03-31T14:14:00+0200">Sun, 31 Mar 2013 14:14:00 CEST</time><br/>
+        <a href="../../copyright.html" rel="copyright">Copyright</a> Manfred Rosenboom
+      </p>
+    </footer>
+<script>
+        var canvas;
+        var context;
+        var drawing = false;
+        var lastMousePos;
+
+        function getMousePos(canvas, evt) {
+            // return relative mouse position
+            var mouseX = evt.clientX - canvas.offsetLeft;
+            var mouseY = evt.clientY - canvas.offsetTop;
+            return {
+                x:mouseX,
+                y:mouseY
+            };
+        }
+
+        function drawEllipse(centerPos, mousePos) {
+            var width  = 2 * Math.abs(centerPos.x - mousePos.x);
+            if (width == 0) width = 2;
+            var height = 2 * Math.abs(centerPos.y - mousePos.y);
+            if (height == 0) height = 2;
+            //var radius = 100;
+            var radius = Math.sqrt(Math.pow(centerPos.x - mousePos.x, 2) + Math.pow(centerPos.y - mousePos.y, 2));
+            var circumference = Math.max(width, height);
+            var scaleX = width / circumference;
+            var scaleY = height / circumference;
+
+            context.save();
+            context.clearRect(0, 0, canvas.width, canvas.height);
+            context.beginPath();
+            context.translate(centerPos.x, centerPos.y);
+            context.scale(scaleX, scaleY);
+            context.lineWidth = 3;
+            context.arc(0, 0, radius, 0, 2 * Math.PI, false);
+            context.stroke();
+            context.closePath();
+            context.restore();
+        }
+
+        function initCanvas() {
+            canvas = document.getElementById('canvas');
+            context = canvas.getContext('2d');
+
+            canvas.addEventListener('mousedown', function (evt) {
+                lastMousePos = getMousePos(canvas, evt);
+                drawing = true;
+            }, false);
+            canvas.addEventListener('mousemove', function (evt) {
+                if (!drawing) {
+                    return;
+                }
+                var mousePos = getMousePos(canvas, evt);
+                drawEllipse(lastMousePos, mousePos);
+            }, false);
+            canvas.addEventListener('mouseup', function (evt) {
+                var mousePos = getMousePos(canvas, evt);
+                drawEllipse(lastMousePos, mousePos);
+                drawing = false;
+            }, false);
+        };
+
+        window.addEventListener("load", initCanvas, false);
+</script>
+</body>
+</html>

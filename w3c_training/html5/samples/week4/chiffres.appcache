@@ -1,0 +1,16 @@
+CACHE MANIFEST
+#Last updated: Sat, 1 Jun 2013 12:37:00 CEST
+#AddType text/cache-manifest .appcache
+#<html manifest="cache.manifest">
+
+CACHE:
+http://www.geocities.ws/marochess/w3c_training/html5/samples/week4/chiffres.html
+
+FALLBACK:
+
+NETWORK:
+*
+
+#SETTINGS:
+#prefer-online
+#fast

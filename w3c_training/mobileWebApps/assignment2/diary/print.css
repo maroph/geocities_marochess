@@ -1,0 +1,46 @@
+@charset "UTF-8";
+/*
+ * Author      : Manfred Rosenboom
+ * Site        : http://www.geocities.ws/marochess/w3c_training/mobileWebApps/assignment2/
+ * Last Update : Sun, 2 Feb 2014 12:07:00 +0100
+ * License     : Creative Commons Attribution 4.0 International License
+ *               http://creativecommons.org/licenses/by/4.0/
+ * =============================================================================
+ */
+* { color:#000 !important; box-shadow:none !important; text-shadow:none !important; background:transparent !important; }
+html { background-color:#fff; }
+body {
+    margin: 0; color: black; background-color: white;
+    font-size: 16px; font-style: normal; font-family: Helvetica, Arial, Verdana, sans-serif;
+}
+header, footer {
+    background-color: #fff; font-size: 1em;
+    margin-left: 5px; padding: 1px 3px 1px 3px;
+    border: 0 solid white; border-radius: 0;
+    display: block;
+}
+header { border-top: 0; border-bottom: 3px; border-bottom-style: solid; border-left: 0; border-right: 0; }
+footer { border-top: 3px; border-top-style: solid; border-bottom: 0; border-left: 0; border-right: 0; }
+section { margin-left: 10px; background-color: #fff; }
+.noprint { display:none; }
+.show, .hide {
+    font-weight: normal;
+    font-size: 14px;
+    padding: 1px;
+    border: 0 solid white; border-radius: 0;
+    color: black;
+    background-color: #ffffff;
+    -moz-transition: opacity 0s;
+    -o-transition: opacity 0s;
+    -webkit-transition: opacity 0s;
+    transition: opacity 0s;
+    opacity: 1;
+    line-height: normal;;
+    height: auto;
+}
+#addEntry {
+    display: none;
+}
+#expandCollapse {
+    display: none;
+}

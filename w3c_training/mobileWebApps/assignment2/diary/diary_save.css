@@ -1,0 +1,139 @@
+@charset "UTF-8";
+/*
+ * Author      : Manfred Rosenboom
+ * Site        : http://www.geocities.ws/marochess/w3c_training/mobileWebApps/assignment2/
+ * Last Update : Sun, 26 Jan 2014 13:02:00 +0100
+ * License     : Creative Commons Attribution 4.0 International License
+ *               http://creativecommons.org/licenses/by/4.0/
+ * =============================================================================
+ */
+html {
+    min-width: 250px;
+}
+body {
+    margin: 0;
+    color: black;
+    background-color: white;
+    font-size: 14px;
+    font-style: normal; font-family: Arial, Helvetica, Verdana, sans-serif;
+    min-width: 250px;
+}
+
+header, footer {
+    clear:both;
+    background-color: #f6e6b4;
+    padding: 10px;
+    border-style: solid; border-radius: 12px; border-color:#c0c0c0; border-width: 2px;
+    display: block;
+}
+
+header {
+    margin: 5px;
+}
+
+header>h1 {
+    font-size: 20px;
+    text-shadow: 0px 0px 4px #333;
+}
+header>h2 {
+    font-size: 16px;
+    color:  #900;
+    margin-left: 20px;
+}
+
+footer {
+    margin: 20px 5px 5px 5px;
+}
+
+section {
+    clear:both;
+    padding: 10px;
+}
+
+section>ul {
+    margin: 0;
+    list-style-type:none;
+}
+
+#newEntry {
+    display: none;
+    background-color: #f6e6b4;
+    width: 90%;
+    margin: 0 0 0 10px;
+    border-style: solid; border-radius: 12px; border-color:#c0c0c0; border-width: 2px;
+}
+#title {
+    width: 90%;
+}
+#text {
+    width: 90%;
+    height: 100px;
+}
+
+#addEntry {
+    float: left;
+    width: 120px;
+    padding: 10px;
+    font-weight: bold;
+    background-color: #f6e6b4;
+    border-style: solid; border-radius: 12px; border-color:#c0c0c0; border-width: 2px;
+    cursor: pointer;
+}
+
+#documentation {
+    margin-left: 150px;
+}
+
+#entries {
+    width: 90%;
+}
+#entries>article>h1 {
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+}
+#entries>article>p {
+    display: none;
+    font-weight: normal;
+    font-size: 14px;
+}
+.time {
+    margin: 0 0 0 5px;
+    font-style: italic;
+    font-weight: normal;
+    font-size: 14px;
+}
+
+
+@media screen and (max-width: 400px) {
+    header>h2 {
+        display: none;
+    }
+    footer {
+        display: none;
+    }
+    #documentation {
+        display: none;
+    }
+    #text {
+        width: 90%;
+        height: 50px;
+    }
+}
+
+
+@media screen and (min-width: 800px) {
+    header>h2 {
+        -webkit-transform: rotate(-5deg);
+        -webkit-transform-origin: 0% 0%;
+        -moz-transform: rotate(-5deg);
+        -moz-transform-origin: 0% 0%;
+        -o-transform: rotate(-5deg);
+        -o-transform-origin: 0% 0%;
+        -ms-transform: rotate(-5deg);
+        -ms-transform-origin: 0% 0%;
+        transform: rotate(-5deg);
+        transform-origin: 0% 0%;
+        text-shadow: 1px 1px 1px #fff;
+    }
+}

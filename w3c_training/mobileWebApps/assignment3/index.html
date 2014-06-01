@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <title>W3C HTML5 Course: Assignment 1</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="generator" content="PhpStorm 7.1"/>
+    <meta name="author" content="Manfred Rosenboom"/>
+    <meta name="description" content=""/>
+    <meta name="keywords" content=""/>
+    <meta name="robots" content="all"/>
+    <link rel="stylesheet" href="./style.css"/>
+</head>
+
+<body>
+<header>
+    <h1>W3C Mobile Web 2 Course: Assignment 3</h1>
+</header>
+
+<nav>
+    <ul>
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="./diary/index.html">MyDiary</a></li>
+    </ul>
+</nav>
+
+<section>
+    <article>
+        <header><h1>Extend the MyDiary Application</h1></header>
+        <p>
+            A few things that would greatly enhance the Diary Application that you created in Assignment 2
+            are:
+        </p>
+
+        <ul>
+            <li>A simple form to actually create new entries through a form!</li>
+            <li>The ability to manage (and delete) existing entries.</li>
+            <li>The ability to log where they user was were when they wrote a given entry.</li>
+        </ul>
+
+        <p>
+            Modify your Assignment 2 diary application so that the user can actually manage their own entries.
+            When the user saves an entry, add the location information for each entry and store the entry data
+            into localStorage. Be sure to take into account the fact that the user may choose not to provide
+            Geolocation information and that the APIs may not be available.
+        </p>
+
+        <p>
+            <b>OPTIONAL</b>: If you are feeling like challenging yourself, add swipe event support as a means to delete an entry (or find some other interesting use for it). Again, be sure to take a progressive enhancement approach here. You might also like to add support for taking a photo if the browser supports it (covered in Week 5) or make use of any of the bleeding edge APIs covered in Week 5.
+        </p>
+
+    </article>
+</section>
+
+<section>
+    <article>
+        <header>
+            <h2>Assignment 3: My Assignment 3 Data</h2>
+        </header>
+
+        <p>
+            I viewed the web app with the following devices:
+        </p>
+
+        <ul>
+            <li>Samsung Galaxy S4 (Android 4.2)</li>
+            <li>Kindle Fire HD</li>
+            <li>Apple iPad Air (iOS 7)</li>
+            <li>Windows 7 PC 24inch monitor with the current Chrome and Firefox versions</li>
+        </ul>
+
+        <p>
+            You can call the MyDiary web application via two URLs:
+        </p>
+        <ul>
+            <li><a href="./diary/index.html">diary/index.html</a><br/>(MyDiary)</li>
+            <li><a href="./diary/index.html?clear">diary/index.html?clear</a><br/>(MyDiary with optional all entries removal - if entries are available)</li>
+        </ul>
+
+        <p>
+            I have implemented the following features:
+        </p>
+        <ul>
+            <li>Add a new entry</li>
+            <li>Modify an existing entry</li>
+            <li>Delete an entry</li>
+            <li>Optional adding of location info to an entry</li>
+            <li>View the location data on a Google map</li>
+            <li>Optional adding an image/photo an entry</li>
+            <li>View the image in an extra window</li>
+            <li>Show hints via a title attribute for almost all actions<br/>
+                (useful for mouse based devices)</li>
+        </ul>
+
+        <p>
+            By default you will see only the head lines of the entries. By clicking on each headline
+            you can expand/collapse the related entry. As an alternative you can use the &quot;Expand Entries&quot;
+            button to expand/collapse all entries at once.<br/>
+            All data are stored in one localStorage item as a stringified JSON array of entry objects
+            (self defined JavaScript object DiaryEntry).
+        </p>
+
+        <p>
+            Create/modify an entry<br/>
+            You will see the following icons:
+        </p>
+        <ul>
+            <li><img alt="Save" src="diary/images/OK.png"/> Save entry.</li>
+            <li><img alt="Cancel" src="diary/images/Abort.png"/> Cancel creation or modifying of an entry.</li>
+            <li><img alt="Show geo location" src="diary/images/Compass.png"/> Add geo location data of current location.</li>
+            <li><img alt="Capture snapshot" src="diary/images/View.png"/> Use camera for a snapshot.<br/>
+                Opens a new tab where you can use the camera for a snapshot. After clicking on close or closing the
+                tab manually you are back and tge photo will be saved with the entry.</li>
+            <li><img alt="Upload image" src="diary/images/Upload.png"/> Upload an image.<br/>
+                Opens a new tab where you can upload an image or use the camera for a snapshot. After clicking
+                on close or closing the tab manually you are back and tge photo will be saved with the entry.</li>
+        </ul>
+
+        <p>
+            Show an entry<br/>
+            You will see the following icons:
+        </p>
+        <ul>
+            <li><img alt="Modify" src="diary/images/Modify.png"/> Modify the entry.</li>
+            <li><img alt="Delete" src="diary/images/Abort.png"/> Delete the entry.</li>
+            <li><img alt="Show geo location" src="diary/images/Compass.png"/> View the geo location data on a Google map.</li>
+            <li><img alt="Show image" src="diary/images/View.png"/> View the stored image.</li>
+        </ul>
+
+        <p>
+            The snapshot functionality (<a href="./diary/camera.html">./diary/camera.html</a>) and the
+            upload feature (<a href="./diary/imageLoader.html">./diary/imageLoader.html</a>) can be used
+            as part of the MyDiary web application or standalone.<br/>
+            A localStorage item ist used for the communication between the MyDiary web application and
+            the above extra pages.
+        </p>
+    </article>
+</section>
+
+<section>
+    <article>
+        <header>
+            <h2>Assignment 3: Restrictions</h2>
+        </header>
+
+        <p>I haven't implement the following two features</p>
+        <ul>
+            <li>geo location data can be modified but not removed from an entry</li>
+            <li>image data can be modified but not removed from an entry</li>
+        </ul>
+
+        <p>getUserMedia API Restrictions (<a href="./diary/camera.html">./diary/camera.html</a>)</p>
+        <ul>
+            <li>PC with most recent Firefox and/or Chrome: works</li>
+            <li>Kindle Fire HD: won't work</li>
+            <li>Galaxy S4 with Chrome: works</li>
+            <li>iPad Air with default Safari: won't work</li>
+        </ul>
+
+        <p>&quot;input type=file caption=camera&quot; Restrictions (<a href="./diary/imageLoader.html">./diary/imageLoader.html</a>)</p>
+        <ul>
+            <li>PC with most recent Firefox and/or Chrome<br/>
+                Upload of images works, camera will not be used</li>
+            <li>Kindle Fire HD: won't work<br/>
+                Upload of images works, camera will not be used</li>
+            <li>Galaxy S4 with Chrome: works<br/>
+                Camera will be used</li>
+            <li>iPad Air with default Safari: works<br/>
+                You can choose between camera usage and image upload</li>
+        </ul>
+    </article>
+</section>
+
+<footer>
+    <p>
+        <span class="nomobile">Validate <a href="http://validator.w3.org/check/referer" target="_blank">HTML</a> , Validate <a
+            href="http://jigsaw.w3.org/css-validator/check/referer" target="_blank">CSS</a><br/></span>
+        Last updated: <time datetime="2014-02-16T17:47:00+0100">Sun, 16 Feb 2014 17:47:00 CET</time><br/>
+        <a href="../copyright.html" rel="copyright">Copyright</a> Manfred Rosenboom
+    </p>
+</footer>
+</body>
+</html>

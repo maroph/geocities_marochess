@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <title>Verbes</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="generator" content="PhpStorm 7.1"/>
+    <meta name="author" content="Manfred Rosenboom"/>
+    <meta name="robots" content="all"/>
+    <style>
+        body {
+            color: black;
+        }
+        div {
+            margin: 0;
+            padding: 0;
+        }
+        span {
+            margin: 0;
+            padding: 0;
+        }
+        select {
+            border:1px solid black;background-color:white;
+        }
+        #verbe {
+            width: 300px;
+            border: solid black 1px;
+        }
+        #infinitife {
+            font-weight: bold;
+            width: 300px;
+        }
+        #conjugation {
+            width: 300px;
+            background-color: #f0f0f0;
+            display: none;
+        }
+        .left {
+            float: left;
+            width: 50%;
+        }
+        .right {
+            margin-left: 50%;
+        }
+        #perfect {
+            text-align: center;
+        }
+    </style>
+    <script>
+        CV = 0;
+        CT = 1;
+        C1 = 2;
+        C2 = 3;
+        C3 = 4;
+        C4 = 5;
+        C5 = 6;
+        C6 = 7;
+        C7 = 8;
+        var verbes = new Array();
+        verbes.push(["acheter","kaufen","achète","achètes","achète","achetons","achetez","'achètent","j'ai acheté"]);
+        verbes.push(["aller","gehen, fahren","vais","vas","va","allons","allez","'vont","je suis allé/e"]);
+        verbes.push(["appeler","rufen","appelle","appelles","appelle","appelons","appelez","appellent","j'ai appelé"]);
+        verbes.push(["avoir","haben","ai","as","a","avons","avez","ont","j'ai eu"]);
+        verbes.push(["dormir","schlafen","dors","dors","dort","dormons","dormez","dorment","j'ai dormi"]);
+        verbes.push(["être","sein","suis","es","est","sommes","êtes","sont","j'ai été"]);
+        verbes.push(["faire","machen","fais","fais","fait","faisons","faites","font","j'ai fait"]);
+        verbes.push(["finir","beenden","finis","finis","finit","finissons","finissez","finissent","j'ai fini"]);
+        verbes.push(["manger","essen","mange","manges","mange","mangeons","mangez","mangent","j'ai mangé"]);
+        verbes.push(["partir","weggehen, wegfahren","pars","pars","part","partons","partez","partent","je suis parti/e"]);
+        verbes.push(["sortir","(hin) ausgehen","sors","sors","sort","sortons","sortez","sortent","je suis sorti/e"]);
+    </script>
+</head>
+
+<body>
+<header>
+    <h1>Verbes</h1>
+</header>
+
+<section>
+    <select id="verbList" onchange="showSelectedVerb(this)" size="1">
+        <option value="" selected="selected" disabled="disabled">select page to view</option>
+<!--
+        <option value="0">aller</option>
+ -->
+    </select>
+</section>
+
+<section>
+    <div id="verbe">
+        <div id="infinitife" title="">verbe</div>
+        <div id="conjugation">
+            <div class="left"  id="c1"></div>
+            <div class="right" id="c4"></div>
+            <div class="left"  id="c2"></div>
+            <div class="right" id="c5"></div>
+            <div class="left"  id="c3"></div>
+            <div class="right" id="c6"></div>
+            <div id="perfect"></div>
+        </div>
+    </div>
+
+</section>
+
+<footer>
+<p>
+Last updated:<br/>
+<time datetime="2013-12-24T11:21:00+0100">Tue, 24 Dec 2013 11:21:00 CET</time>
+</p>
+</footer>
+<script>
+    var id_verbList    = document.getElementById("verbList");
+    var id_infinitife  = document.getElementById("infinitife");
+    var id_conjugation = document.getElementById("conjugation");
+    var id_c1 = document.getElementById("c1");
+    var id_c2 = document.getElementById("c2");
+    var id_c3 = document.getElementById("c3");
+    var id_c4 = document.getElementById("c4");
+    var id_c5 = document.getElementById("c5");
+    var id_c6 = document.getElementById("c6");
+    var id_perfect = document.getElementById("perfect");
+
+    var node;
+    var data;
+    for (var i = 0; i < verbes.length; i++) {
+        node = document.createElement('option');
+        node.value = i;
+        data = verbes[i];
+        node.innerHTML = data[CV];
+        id_verbList.appendChild(node);
+    }
+
+    function showSelectedVerb(sel) {
+        var value = sel.options[sel.selectedIndex].value;
+        if (value == "") {
+            return;
+        }
+
+        hideDetails();
+        var data = verbes[value];
+        id_infinitife.innerHTML = data[CV];
+        id_infinitife.title = data[CT];
+        var c = data[C1].charAt(0);
+        switch (c) {
+            case 'a' :
+            case 'e' :
+            case 'ê' :
+            case 'i' :
+            case 'o' :
+            case 'u' :
+                id_c1.innerHTML = "j' " + data[C1];
+                break;
+            default:
+                id_c1.innerHTML = 'je ' + data[C1];
+                break;
+        }
+        id_c2.innerHTML = 'tu ' + data[C2];
+        id_c3.innerHTML = 'il/elle/on ' + data[C3];
+        id_c4.innerHTML = 'nous ' + data[C4];
+        id_c5.innerHTML = 'vous ' + data[C5];
+        id_c6.innerHTML = 'ils/elles ' + data[C6];
+        id_perfect.innerHTML = 'perfect: ' + data[C7];
+    }
+
+
+    var detailsVisible = false;
+    function showDetails() {
+        if (detailsVisible) {
+            return;
+        }
+        detailsVisible = true;
+        id_conjugation.style.display = 'block';
+    }
+
+    function hideDetails() {
+        if (!detailsVisible) {
+            return;
+        }
+        detailsVisible = false;
+        id_conjugation.style.display = 'none';
+    }
+
+    id_infinitife.addEventListener( "click", function(){
+        if (detailsVisible) {
+            detailsVisible = false;
+            id_conjugation.style.display = 'none';
+        } else {
+            detailsVisible = true;
+            id_conjugation.style.display = 'block';
+        }
+    }, false);
+</script>
+</body>
+</html>

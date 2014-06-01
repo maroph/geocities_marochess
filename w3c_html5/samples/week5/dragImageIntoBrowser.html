@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <title>Drag image into the browser</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="generator" content="PhpStorm 6.0"/>
+    <meta name="author" content="Manfred Rosenboom"/>
+    <meta name="description" content=""/>
+    <meta name="keywords" content=""/>
+    <meta name="robots" content="all"/>
+    <link rel="stylesheet" href="../../style.css"/>
+    <style>
+        #dragCanvas { border: 1px solid black; width: 300px; height: 300px; margin: 20px auto; }
+        #dragCanvas.hover { border: 1px dashed #333; }
+        #status {
+            padding: 5px;
+            color: #fff;
+            background: #ccc;
+        }
+
+        #status.fail {
+            background: #c00;
+        }
+
+        #status.success {
+            background: #0c0;
+        }
+
+    </style>
+</head>
+
+<body>
+<header>
+    <h1>Drag image into the browser</h1>
+</header>
+<main>
+
+<section>
+    <article>
+        <p>
+        This code is an adaption of the following sample code:
+        <a href="http://html5demos.com/file-api">http://html5demos.com/file-api</a>
+        </p>
+    </article>
+
+    <article>
+        <canvas id="dragCanvas" width="300" height="300" style="width: 300px; height: 300px;"/>
+        <p id="status">File API & FileReader API not supported</p>
+        <p>Drag an image from your desktop on to the drop zone above to see the browser read
+            the contents of the file and use it as the background - without uploading the file
+            to any servers.
+        </p>
+    </article>
+</section>
+
+</main>
+<footer>
+    <p>
+        Validate <a href="http://validator.w3.org/check/referer" target="_blank">HTML</a> , Validate <a
+            href="http://jigsaw.w3.org/css-validator/check/referer" target="_blank">CSS</a><br/>
+        Last updated:
+        <time datetime="2013-04-15T19:13:00+0200">Mon, 15 Apr 2013 19:13:00 CEST</time>
+        <br/>
+        <a href="../../copyright.html">Copyright</a> Manfred Rosenboom
+    </p>
+</footer>
+<script>
+    var dragCanvas = document.getElementById('dragCanvas');
+    var ctx = dragCanvas.getContext("2d")
+    var state = document.getElementById('status');
+
+    if (typeof window.FileReader === 'undefined') {
+        state.className = 'fail';
+    } else {
+        state.className = 'success';
+        state.innerHTML = 'File API & FileReader available';
+    }
+
+    dragCanvas.ondragover = function () { this.className = 'hover'; return false; };
+    dragCanvas.ondragend = function () { this.className = ''; return false; };
+    dragCanvas.ondrop = function (e) {
+        this.className = '';
+        e.preventDefault();
+
+        var file = e.dataTransfer.files[0],
+                reader = new FileReader();
+        reader.onload = function (event) {
+            console.log(event.target);
+            var img = document.getElementById('holderIMG');
+            var draggedImage = new Image();
+            draggedImage.src = event.target.result;
+            draggedImage.onload = function() {
+                var x,y;
+                if ((draggedImage.width > dragCanvas.width) || (draggedImage.height > dragCanvas.height)) {
+                    if (draggedImage.width > draggedImage.height) {
+                        x = (draggedImage.width / draggedImage.height) * dragCanvas.height;
+                        y = dragCanvas.height;
+                    } else {
+                        //original height / original width x new width = new height
+                        x = dragCanvas.height;
+                        y = (draggedImage.height / draggedImage.width) * dragCanvas.width;
+                    }
+                } else {
+                    x = draggedImage.height;
+                    y = draggedImage.width;
+                }
+                ctx.drawImage(draggedImage, 0, 0, x, y);
+            };
+        };
+        console.log(file);
+        reader.readAsDataURL(file);
+
+        return false;
+    };
+</script>
+</body>
+</html>

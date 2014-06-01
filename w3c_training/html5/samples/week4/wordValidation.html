@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <title>Word Validation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="generator" content="PhpStorm 6.0"/>
+    <meta name="author" content="Manfred Rosenboom"/>
+    <meta name="description" content=""/>
+    <meta name="keywords" content=""/>
+    <meta name="robots" content="all"/>
+    <link rel="stylesheet" href="../../style.css"/>
+    <style>
+        /* example of user interface selectors http://www.w3.org/TR/css3-ui/#user-interface-selectors */
+        input:focus:invalid { background-color: lightPink; }
+        input:valid    { background-color: lightGreen; }
+        input:invalid  { background-color: lightPink; }
+        input:required { border: 2px solid red; }
+        /* input:optional { border: 2px solid green; } */
+        form label {
+            display: inline-block;
+            width: 110px;
+        }
+    </style>
+</head>
+
+<body>
+<header>
+    <h1>Word Validation</h1>
+</header>
+<main>
+    <section>
+        <p>
+        <form onsubmit="return false;">
+            <label for="word1">Word: </label><input type="text" id="word1" oninput="checkWords()"/><br/>
+            <label for="word2">Repeat word: </label><input type="text" id="word2" oninput="checkWords()"/><br/>
+            <input type="submit"/>
+        </form>
+        </p>
+    </section>
+
+</main>
+<footer>
+    <p>
+        Validate <a href="http://validator.w3.org/check/referer" target="_blank">HTML</a> , Validate <a
+            href="http://jigsaw.w3.org/css-validator/check/referer" target="_blank">CSS</a><br/>
+        Last updated:
+        <time datetime="2013-04-08T18:27:00+0200">Mon, 8 Apr 2013 18:27:00 CEST</time>
+        <br/>
+        <a href="../../copyright.html">Copyright</a> Manfred Rosenboom
+    </p>
+</footer>
+<script>
+    function checkWords() {
+        var word1 = document.getElementById('word1');
+        var word2 = document.getElementById('word2');
+        if (word1.value != word2.value) {
+            word2.setCustomValidity('Words do not match');
+        } else {
+            word2.setCustomValidity('');
+        }
+    }
+</script>
+</body>
+</html>

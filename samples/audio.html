@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
+    <title>Samples: HTML5 Audio Tag</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="generator" content="PhpStorm 6.0"/>
+    <meta name="author" content="Manfred Rosenboom">
+    <meta name="description" content="audio sample">
+    <meta name="keywords" content="HTML5">
+	<meta name="robots" content="all">
+    <link rel="stylesheet" href="../includes/default.css" media="all"/>
+    <script src="../includes/core.js"></script>
+    <script src="../includes/menu.js"></script>
+    <style>
+.caption {
+     position: relative;
+     width: 722px;
+}
+.caption img {
+    display: block;
+}
+.caption span {
+  position: absolute; top: 0px;
+  width: 722px; 
+  color: #fff; 
+  text-align: center;
+  height: 2em;
+  line-height: 2em;    
+  border-top: 1px solid #999;
+  border-bottom: 1px solid #999;
+  background-color: rgba(40, 40, 40, 0.5);
+}
+  </style>
+  </head>
+  <body>
+    <nav>
+      <div id="navMenu"></div>
+      <noscript>
+        <ul class="menu">
+          <li><a style="color:black; background-color: red;">Base Menu (no JavaScript)</a></li>
+          <li><a href="./index.html">Home</a></li>
+          <li><a href="./samples/index.html">Samples</a></li>
+          <li><a href="./tools/index.html">Tools</a></li>
+        </ul>
+      </noscript>
+    </nav>
+
+    <header>
+      <h1>Samples: HTML5 Audio Tag</h1>
+    </header>
+    <main>
+
+    <section>
+        <header>
+            <hgroup>
+                <h1>HTML5 Audio Player</h1>
+            </hgroup>
+        </header>
+	  <p>
+		Song: <a href="http://musiclub.web.cern.ch/MusiClub/bands/cernettes/songs/collider.html" target="_blank">Collider</a>  performed by the <a href="http://musiclub.web.cern.ch/MusiClub/bands/cernettes/" target="blank">Les Horribles Cernettes</a>.	
+		</p>
+		<audio id="player" controls="controls" preload="metadata" style="border:2px solid black;background-color: #95B9C7;">
+          <source src="./LHC_Collider.ogg" type="audio/ogg">
+         <source src="./LHC_Collider.mp3" type="audio/mp3">
+        Your browser does not support the audio tag.
+       </audio><br/>
+       <button onclick="document.getElementById('player').play()">Play</button>
+       <button onclick="document.getElementById('player').pause()">Pause</button>
+       <button onclick="audioVolumeUp();">Vol+ </button>
+       <button onclick="audioVolumeDown();">Vol- </button>
+	<hr style="margin-left:0px;width:400px;">
+	<p>Code in use:</p>
+	<pre>
+&lt;audio controls preload=&quot;metadata&quot; style=&quot;border:2px solid black;background-color: #95B9C7;&quot;&gt;
+  &lt;source src=&quot;./LHC_Collider.ogg&quot; type=&quot;audio/ogg&quot;&gt;
+  &lt;source src=&quot;./LHC_Collider.mp3&quot; type=&quot;audio/mp3&quot;&gt;
+  Your browser does not support the audio tag.
+&lt;/audio&gt;
+	</pre>
+    <div class="caption nomobile">
+    <a href="http://musiclub.web.cern.ch/MusiClub/bands/cernettes/press_info.html" target="_blank"><img src="./LHC2.jpg" alt="Les Horribles Cernettes" title="Les Horribles Cernettes" width="722" height="481" style="border:1px solid black;"><span>Les Horribles Cernettes</span></a>
+    </div>
+    </section>
+
+    <section>
+	<p>
+	Courtsey by <a href="http://www.cernettes.com/" target="blank">Les Horribles Cernettes</a>.	
+	</p>
+    </section>
+
+    </main>
+    <footer>
+      <p>
+        <span class="noprint nomobile">Validate <a href="http://validator.w3.org/check/referer" target="_blank">HTML</a> , Validate <a href="http://jigsaw.w3.org/css-validator/check/referer" target="_blank">CSS</a><br/></span>
+        Last updated: <time datetime="2013-03-24T15:53:00+0100">Sun, 24 Mar 2013 15:53:00 CET</time><br/>
+        <a href="../copyright.html">Copyright</a> Manfred Rosenboom
+      </p>
+    </footer>
+
+<script>
+    var player = document.getElementById('player');
+    function audioVolumeUp() {
+        if (player.paused) {
+            return;
+        }
+        var volume = player.volume;
+        volume += 0.1;
+        if (volume > 1) {
+            volume = 1;
+        }
+        player.volume = volume;
+    }
+    function audioVolumeDown() {
+        if (player.paused) {
+            return;
+        }
+        var volume = player.volume;
+        volume -= 0.1;
+        if (volume < 0) {
+            volume = 0;
+        }
+        player.volume = volume;
+    }
+</script>
+<script>
+var nodeNavMenu = document.getElementById('navMenu');
+nodeNavMenu.innerHTML = addMenu();
+</script>
+  </body>
+</html>

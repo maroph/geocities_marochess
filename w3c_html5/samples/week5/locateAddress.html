@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <title>(Geo) Locate an Address</title>
+    <style>
+        label {
+            float: left; width: 60px;
+        }
+        input[type=text] {
+            margin-left: 5px;
+            width: 300px;
+        }
+        #divId {
+            display: inline-block;
+            border: 1px solid black;
+            padding: 5px;
+        }
+        button {
+            margin-top: 5px;
+        }
+    </style>
+    <script src="http://maps.google.com/maps/api/js?sensor=false"></script>
+</head>
+
+<body>
+<section>
+    <h1>(Geo) Locate an Address</h1>
+
+    <p>
+        <div id="divId">
+        <label for="city">City:</label>
+        <input type="text" name="city" id="city" placeholder="San Francisco" /><br/>
+        <label for="zip">ZIP:</label>
+        <input type="text" name="zip" id="zip" placeholder="123456" /><br/>
+        <label for="street">Street:</label>
+        <input type="text" name="street" id="street" placeholder="Lombard Street 12" /><br/>
+        <label for="country">Country:</label>
+        <input type="text" name="country" id="country" placeholder="USA" /><br/>
+        <button id="btnLocate">Locate Address</button>
+        </div>
+    </p>
+</section>
+
+<script>
+    var city      = document.getElementById('city');
+    var zip       = document.getElementById('zip');
+    var street    = document.getElementById('street');
+    var country   = document.getElementById('country');
+    var btnLocate = document.getElementById('btnLocate');
+
+    function getLocation(event) {
+        if (!navigator.geolocation) {
+            alert("Geolocation API not supported by your browser.");
+            return;
+        }
+
+        navigator.geolocation.getCurrentPosition(getPosition, errorPosition);
+    }
+
+    function getPosition(position) {
+        var centerpos = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+        var geocoder = new google.maps.Geocoder();
+        geocoder.geocode({'latLng': centerpos}, function(results, status) {
+            if (status == google.maps.GeocoderStatus.OK) {
+                if (!results) {
+                    alert('No results found');
+                    return;
+                }
+                if (results.length == 0) {
+                    alert('No results found');
+                    return;
+                }
+
+                fillAddressInputFields(results[0].formatted_address.trim());
+            } else {
+                alert('Geocoder failed due to: ' + status);
+            }
+        });
+    }
+
+    function errorPosition(error) {
+        var info = 'Error in fetching geolocation data: ';
+
+        switch(error.code) {
+            case error.TIMEOUT:
+                info += "Timeout !";
+                break;
+            case error.PERMISSION_DENIED:
+                info += "Permission denied, geolocation could not be obtained...";
+                break;
+            case error.POSITION_UNAVAILABLE:
+                info += "Location could not be obtained though the avaible means...";
+                break;
+            case error.UNKNOWN_ERROR:
+                info += "Unknown error";
+                break;
+            default :
+                info += "Unexpected error code";
+                break;
+        }
+        alert(info);
+    }
+
+    function fillAddressInputFields(addressLine) {
+        if (!addressLine) { return; }
+        var arr = addressLine.split(',');
+        if (!arr) { return; }
+        if (arr.length == 0) { return;  }
+        street.value = arr[0].trim();
+        if (arr.length > 2) {
+            country.value = arr[2].trim();
+        }
+        if (arr.length == 1) {
+            return;
+        }
+        var zc = arr[1].trim().split(' ');
+        if (!zc) { return; }
+        if (zc.length == 0) { return; }
+        if (zc.length == 1) {
+            city.value = zc[0].trim();
+            return;
+        }
+        zip.value  = zc[0].trim();
+        city.value = zc[1].trim();
+    }
+
+    btnLocate.addEventListener('click', getLocation, false);
+</script>
+</body>
+</html>

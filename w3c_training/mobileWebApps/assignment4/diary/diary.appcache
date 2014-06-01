@@ -1,0 +1,33 @@
+CACHE MANIFEST
+#Last updated: Sun, 23 Feb 2014 11:08:00 +0100
+#AddType text/cache-manifest .appcache
+#
+CACHE:
+camera.html
+imageLoader.html
+index.html
+index.html?clear
+diary.css
+diary.js
+images/Abort.png
+images/Add.png
+images/Compass.png
+images/Create.png
+images/Delete.png
+images/Info.png
+images/Modify.png
+images/OK.png
+images/Thumbs_down.png
+images/Thumbs_up.png
+images/Upload.png
+images/View.png
+images/Warning.png
+#
+FALLBACK:
+#
+NETWORK:
+map.html
+#
+#SETTINGS:
+prefer-online
+#

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <title>Image Loader</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="generator" content="PhpStorm 7.1.2"/>
+    <meta name="author" content="Manfred Rosenboom"/>
+    <meta name="description" content="use camera to take a snapshot"/>
+    <meta name="keywords" content="HTML5, video, canvas, camera, snapshot"/>
+    <meta name="robots" content="all"/>
+    <style>
+        body  { min-width: 330px; }
+        img   { border: solid 1px black;display:none; }
+        @media screen and (max-width: 400px) { header, footer { display: none; } }
+    </style>
+</head>
+
+<body>
+<header>
+    <h1 id="headline">Image Loader</h1>
+</header>
+<section>
+    <p>
+        <button id="close" style="display: none;">Close</button><button id="clear">Clear</button><input type="file" id="file" accept="image/*" capture="camera" alt=""/><br/>
+        <img id="show" alt="uploaded image"/>
+    </p>
+</section>
+<footer>
+    <p>
+        Last updated: <time datetime="2014-02-16T16:41:00+0100">Sun, 16 Feb 2014 16:41:00 CET</time><br/>
+        <a href="../../../copyright.html">Copyright</a> Manfred Rosenboom
+    </p>
+</footer>
+<script>
+    var diaryStorePhotoKey = 'www_geocities_ws_marochess_MyDiary_Photo';
+
+    var nodeHeadline = document.getElementById('headline');
+    var nodeClose    = document.getElementById('close');
+    var nodeClear    = document.getElementById('clear');
+    var nodeFile     = document.getElementById('file');
+    var nodeImage    = document.getElementById('show');
+
+    function isMyDiaryMode() {
+        if (!window.localStorage) {
+            if (nodeHeadline.innerHTML != 'Camera Snapshot') {
+                nodeHeadline.innerHTML = 'Camera Snapshot';
+            }
+            return false;
+        }
+
+        var data = window.localStorage.getItem(diaryStorePhotoKey);
+        if (!data) {
+            if (nodeHeadline.innerHTML != 'Image Loader') {
+                nodeHeadline.innerHTML = 'Image Loader';
+            }
+            return false;
+        }
+
+        if ((data == diaryStorePhotoKey) || (data.indexOf('data:') == 0)) {
+            if (nodeHeadline.innerHTML != 'Image Loader (MyDiary)') {
+                nodeHeadline.innerHTML = 'Image Loader (MyDiary)';
+            }
+            return true;
+        }
+
+        if (nodeHeadline.innerHTML != 'Image Loader') {
+            nodeHeadline.innerHTML = 'Image Loader';
+        }
+        return false;
+    }
+
+
+    function showPicture(event) {
+        var file = nodeFile.files[0];
+        var reader = new FileReader();
+        reader.onload = function (file) {
+            var image = new Image();
+            image.src = reader.result;
+            nodeImage.src = image.src;
+            nodeImage.style.display = 'block';
+            if (isMyDiaryMode()) {
+                window.localStorage.setItem(diaryStorePhotoKey, reader.result);
+            }
+        }
+        reader.readAsDataURL(file);
+    }
+
+    function clear() {
+        nodeFile.value = '';
+        nodeImage.src = '';
+        nodeImage.style.display = 'none';
+        if (isMyDiaryMode()) {
+            window.localStorage.removeItem(diaryStorePhotoKey);
+        }
+    }
+
+    function closeWindow() {
+        window.close();
+    }
+
+    if (isMyDiaryMode()) {
+        nodeClose.style.display = '';
+    }
+
+
+    nodeClose.addEventListener('click',closeWindow,false);
+    nodeClear.addEventListener('click',clear,false);
+    nodeFile.addEventListener('change',showPicture,false);
+</script>
+</body>
+</html>
