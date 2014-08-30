@@ -1,0 +1,75 @@
+body {
+	margin: 0;
+	background-image: url(background.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	font-size: 16px;
+}
+#wrapper {
+	width: 998px;
+	padding: 0 20px 20px 20px;
+	margin: 0 auto auto 20px;
+}
+#banner {
+	width: 100%;
+	height: 100px;
+	font-size: 50px;
+	text-transform: uppercase;
+	text-align: center;
+	color: #FFF;
+}
+#content {
+	width: 550px;
+	min-height: 280px;
+	padding: 20px 20px 30px 20px;
+	position: absolute;
+	top: 150px;
+	left: 260px;
+	background-color: #FFF;
+}
+ul#menu {
+	width: 200px;
+	padding: 0;
+	margin-top: 50px;
+	border: 1px solid #000;
+	background-color: #DA622E;
+}
+#menu li {
+	text-align: center;
+	color: #fff;
+	padding: 10px 0 10px 20px;
+	border-bottom: 1px solid #216B9A;
+}
+#menu li {
+	text-align: left;
+	list-style: none;
+}
+li a {
+	color: #FFF;
+}
+li a:hover, li a:hover {
+	color: #000;
+}
+a {
+	text-decoration: none;
+	color: #DA622E;
+}
+a:hover, a:focus {
+	color: #09F;
+}
+#aside {
+	width: 150px;
+	min-height: 200px;
+	float: right;
+	margin: 50px 0 0 10px;
+	background-color: #999;
+}
+h1 {
+	margin-top: 0;
+}
+h2 {
+	font-size: 100%;
+	color: #166BA1;
+	margin-top: 0;
+}
