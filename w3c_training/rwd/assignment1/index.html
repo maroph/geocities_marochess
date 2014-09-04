@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <title>W3C Responsive Web Design Course: Assignment 1</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="generator" content="PhpStorm 6.0"/>
+    <meta name="author" content="Manfred Rosenboom"/>
+    <meta name="description" content=""/>
+    <meta name="keywords" content=""/>
+    <meta name="robots" content="all"/>
+    <link rel="stylesheet" href="./style.css"/>
+</head>
+
+<body>
+<header>
+    <h1>W3C Responsive Web Design Course: Assignment 1</h1>
+</header>
+
+<nav>
+    <ul>
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="bnb/index.html">My Diary</a><br/>(Sample Web App)</li>
+    </ul>
+</nav>
+
+<section>
+    <article>
+        <header>
+            <h1>Assignment 1: Picking Up Good Habits</h1>
+        </header>
+
+    <p>
+        I viewed the web app with the following devices:
+    </p>
+    <ul>
+        <li>Samsung Galaxy S4</li>
+        <li>Kindle Fire HD</li>
+        <li>Apple iPad air</li>
+        <li>Windows 7 PC 24inch monitor</li>
+    </ul>
+
+    <p>
+        In principle I like this up. But I would prefer a much more compacted page layout for the use with
+        mobile devices. Running <a href="http://developers.google.com/speed/pagespeed/insights/">Google PageSpeed Insights</a>
+        shows some potential problems with this web app which fit in with my own observations.
+    </p>
+
+    <h3>Detected problems</h3>
+    <ul>
+        <li>
+            <b>A fixed page width of 960px is used.</b><br/>
+            The web app seems in no way to be adapted for the usage on a mobile device.<br/>
+            On a smaller device you will see a scaled down version of the page. Which is no
+            more readable. Before you can use the page you have to zoom in but than you cna read
+            the text but don't see the necessary context anymore. You can use the app on a phone
+            of the size like a Samsung Galaxy S4 only in landscape mode.
+        </li>
+        <li>
+            <b>The footer line sticks to the bottom of the visible area of your browser window.</b><br/>
+            Entering a new entry in the diary will open a soft keyboard on a mobile phone. This
+            makes the visible area of the input form field already very small. Showing the footer
+            line also makes it even worse.
+        </li>
+        <li>
+            <b>More than 950 lines of CSS code.</b><br/>
+            The web app uses 3 CSS files - an own one and 2 copied - with more than 950 lines
+            of CSS code in total. This will slow down the page loading. Especially as a lot of the
+            CSS code isn't used in the app.
+        </li>
+        <li>
+            <b>The <a href="http://jigsaw.w3.org/css-validator/">W3C CSS Validation Service</a> shows 21 errors.</b><br/>
+            It is always good style to check the HTML and CSS code with a validator before publishing.
+        </li>
+        <li>
+            <b>Google Fonts included</b><br/>
+            Same as above is true for using an external font: looks nice but slows dwon the loading
+            of the page.
+        </li>
+        <li>
+            <b>Usage of local storage.</b><br/>
+            The data are stored in the browser's local storage under the name data. I see two
+            problems with this approach: 1st problem: data is a very generic name, i.e. any other web app
+            can use the same name. Better would be a unique name like myDiaryData, or even better
+            com.robineko.myDiaryData. 2nd problem: the usage of the browser's local storage doesn't
+            allow to share the data over several devices. If this is what was intended with the app,
+            this is, of course, okay.
+        </li>
+        <li>
+            <b>Make the web app offline aware.</b><br/>
+            As the web app uses local storage it should also use a .appcache manifest file. This will allow
+            the offline usage of the app.
+        </li>
+        <li>
+            <b>Usage of an old external jQuery version</b><br>
+            The app uses an old Google hosted jQuery version 1.5.1. If Google deletes this old
+            version, the app won't work anymore. Personally I prefer a local copy of jQuery to
+            prevent such problems.
+        </li>
+        <li>
+            <b>Mixing HTML with JavaScript code</b><br/>
+            Only a personal preference: I would pack all the JavaScript code in a file (e.g. in the
+            available diary.js file) and add the onclick event functions dynamically (addListener)
+            to the desired HTML elements. This gives a clean separation between static HTML code and
+            the dynamic JavaScript code.
+        </li>
+    </ul>
+    </article>
+</section>
+
+<footer>
+    <p>
+        <span class="nomobile">Validate <a href="http://validator.w3.org/check/referer" target="_blank">HTML</a> , Validate <a
+            href="http://jigsaw.w3.org/css-validator/check/referer" target="_blank">CSS</a><br/></span>
+        Last updated: <time datetime="2014-01-19T12:29:00+0100">Sun, 19 Jan 2014 12:29:00 CET</time><br/>
+        <a href="../copyright.html" rel="copyright">Copyright</a> Manfred Rosenboom
+    </p>
+</footer>
+</body>
+</html>
