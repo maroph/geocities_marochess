@@ -1,3 +1,7 @@
+@charset "UTF-8";
+main, header, nav, aside, section {
+    display: block;
+}
 body {
 	margin: 0;
 	background-image: url(background.jpg);
@@ -6,12 +10,12 @@ body {
 	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
 	font-size: 16px;
 }
-#wrapper {
+main {
 	width: 998px;
 	padding: 0 20px 20px 20px;
 	margin: 0 auto auto 20px;
 }
-#banner {
+main>header {
 	width: 100%;
 	height: 100px;
 	font-size: 50px;
@@ -19,7 +23,7 @@ body {
 	text-align: center;
 	color: #FFF;
 }
-#content {
+section {
 	width: 550px;
 	min-height: 280px;
 	padding: 20px 20px 30px 20px;
@@ -28,20 +32,24 @@ body {
 	left: 260px;
 	background-color: #FFF;
 }
-ul#menu {
+section>header>h2 {
+    text-transform: uppercase;
+}
+nav>ul {
 	width: 200px;
 	padding: 0;
 	margin-top: 50px;
 	border: 1px solid #000;
 	background-color: #DA622E;
 }
-#menu li {
+nav>ul>li {
 	text-align: center;
 	color: #fff;
 	padding: 10px 0 10px 20px;
 	border-bottom: 1px solid #216B9A;
+    line-height: 18px;
 }
-#menu li {
+nav>ul>li {
 	text-align: left;
 	list-style: none;
 }
@@ -58,12 +66,18 @@ a {
 a:hover, a:focus {
 	color: #09F;
 }
-#aside {
+aside {
 	width: 150px;
 	min-height: 200px;
 	float: right;
 	margin: 50px 0 0 10px;
 	background-color: #999;
+    padding: 20px 10px;
+}
+aside>p {
+    line-height:1.1;
+    color : white;
+    font-size: 13px;
 }
 h1 {
 	margin-top: 0;
@@ -72,4 +86,30 @@ h2 {
 	font-size: 100%;
 	color: #166BA1;
 	margin-top: 0;
+}
+.bold {
+    font-weight:bold;
+}
+#promoHome a {
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+}
+#confirmation {
+    background-image: none;
+    margin: 20px;
+}
+#promo {
+    background-image: none;
+    margin: 10px 20px 20px 20px;
+}
+#formClose {
+    display: none;
+}
+#formContact {
+
+}
+table {
+    border: 0px solid black;
+    width: 450px;
 }
