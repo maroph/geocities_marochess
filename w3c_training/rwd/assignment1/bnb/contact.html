@@ -42,150 +42,153 @@
         <h2>Contact Us</h2>
     </header>
     <form id="formContact" name="formContact" action="./confirmation.html" target="_blank">
-      <table>
-        <tr>
-          <td class="bold"><label for="name">Name:</label></td>
-          <td><input type="text" id="name" name="name" size="30" required="required"></td>
-        </tr>
-        <tr>
-          <td class="bold"><label for="email">E-mail:</label></td>
-          <td><input type="email" id="email" name="email" size="30" placeholder="mail@server.com" required="required"></td>
-        </tr>
-        <tr>
-          <td class="bold">Arrival Date:</td>
-          <td><select id="amonth" name="amonth">
-              <option selected="selected">Select Month</option>
-              <option>Jan</option>
-              <option>Feb</option>
-              <option>Mar</option>
-              <option>April</option>
-              <option>May</option>
-              <option>June</option>
-              <option>July</option>
-              <option>August</option>
-              <option>September</option>
-              <option>October</option>
-              <option>November</option>
-              <option>December</option>
-            </select>
-            <select id="aday" name="aday">
-              <option selected="selected">Select Day</option>
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
-              <option>5</option>
-              <option>6</option>
-              <option>7</option>
-              <option>8</option>
-              <option>9</option>
-              <option>10</option>
-              <option>11</option>
-              <option>12</option>
-              <option>13</option>
-              <option>14</option>
-              <option>15</option>
-              <option>16</option>
-              <option>17</option>
-              <option>18</option>
-              <option>19</option>
-              <option>20</option>
-              <option>21</option>
-              <option>22</option>
-              <option>23</option>
-              <option>24</option>
-              <option>25</option>
-              <option>26</option>
-              <option>27</option>
-              <option>28</option>
-              <option>29</option>
-              <option>30</option>
-              <option>31</option>
-            </select>
-            <select id="ayear" name="ayear">
-              <option selected="selected">Select year</option>
-              <option>2011</option>
-              <option>2012</option>
-              <option>2013</option>
-              <option>2014</option>
-              <option>2015</option>
-              <option>2016</option>
-              <option>2017</option>
-            </select></td>
-        </tr>
-        <tr>
-          <td class="bold">Departure Date:</td>
-          <td><select id="dmonth" name="dmonth">
-              <option selected="selected">Select Month</option>
-              <option>Jan</option>
-              <option>Feb</option>
-              <option>Mar</option>
-              <option>April</option>
-              <option>May</option>
-              <option>June</option>
-              <option>July</option>
-              <option>August</option>
-              <option>September</option>
-              <option>October</option>
-              <option>November</option>
-              <option>December</option>
-            </select>
-            <select id="dday" name="dday">
-              <option selected="selected">Select Day</option>
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
-              <option>5</option>
-              <option>6</option>
-              <option>7</option>
-              <option>8</option>
-              <option>9</option>
-              <option>10</option>
-              <option>11</option>
-              <option>12</option>
-              <option>13</option>
-              <option>14</option>
-              <option>15</option>
-              <option>16</option>
-              <option>17</option>
-              <option>18</option>
-              <option>19</option>
-              <option>20</option>
-              <option>21</option>
-              <option>22</option>
-              <option>23</option>
-              <option>24</option>
-              <option>25</option>
-              <option>26</option>
-              <option>27</option>
-              <option>28</option>
-              <option>29</option>
-              <option>30</option>
-              <option>31</option>
-            </select>
-            <select id="dyear" name="dyear">
-              <option selected="selected">Select year</option>
-              <option>2011</option>
-              <option>2012</option>
-              <option>2013</option>
-              <option>2014</option>
-              <option>2015</option>
-              <option>2016</option>
-              <option>2017</option>
-            </select></td>
-        </tr>
-        <tr>
-          <td class="bold"><label for="message">Message:</label></td>
-          <td><textarea id="message" name="message">Type here</textarea></td>
-        </tr>
-        <tr>
-          <td><input type="reset" name="Reset" value="Cancel"></td>
-          <td><input type="submit" value="Proceed" ></td>
-        </tr>
-      </table>
+        <ul class="contact_form">
+            <li class="contact_form_item clearfix">
+                <div class="contact_form_item_colName"><label for="name">Name:</label></div>
+                <div class="contact_form_item_colValue"><input type="text" id="name" name="name" size="30" placeholder="John Smith" required="required" aria-labelledby="name"></div>
+            </li>
+            <li class="contact_form_item clearfix">
+                <div class="contact_form_item_colName"><label for="email">E-mail:</label></div>
+                <div class="contact_form_item_colValue"><input type="email" id="email" name="email" size="30" placeholder="mail@server.com" required="required" aria-labelledby="email"></div>
+            </li>
+            <li class="contact_form_item clearfix">
+                <fieldset><legend>Arrival</legend>
+                <div class="contact_form_item_colName">Date:</div>
+                <div class="contact_form_item_colDate1"><select id="amonth" name="amonth" required="required" size="1" aria-labelledby="amonth">
+                <option selected="selected" disabled="disabled" value="">Select Month</option>
+                <option>January</option>
+                <option>February</option>
+                <option>March</option>
+                <option>April</option>
+                <option>May</option>
+                <option>June</option>
+                <option>July</option>
+                <option>August</option>
+                <option>September</option>
+                <option>October</option>
+                <option>November</option>
+                <option>December</option>
+                </select></div>
+                <div class="contact_form_item_colDate2"><select id="aday" name="aday" required="required" size="1" aria-labelledby="aday">
+                    <option selected="selected" disabled="disabled" value="">Select Day</option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                    <option>6</option>
+                    <option>7</option>
+                    <option>8</option>
+                    <option>9</option>
+                    <option>10</option>
+                    <option>11</option>
+                    <option>12</option>
+                    <option>13</option>
+                    <option>14</option>
+                    <option>15</option>
+                    <option>16</option>
+                    <option>17</option>
+                    <option>18</option>
+                    <option>19</option>
+                    <option>20</option>
+                    <option>21</option>
+                    <option>22</option>
+                    <option>23</option>
+                    <option>24</option>
+                    <option>25</option>
+                    <option>26</option>
+                    <option>27</option>
+                    <option>28</option>
+                    <option>29</option>
+                    <option>30</option>
+                    <option>31</option>
+                </select></div>
+                <div class="contact_form_item_colDate3"><select id="ayear" name="ayear" required="required" size="1" aria-labelledby="ayear">
+                    <option selected="selected" disabled="disabled" value="">Select year</option>
+                    <option>2014</option>
+                    <option>2015</option>
+                    <option>2016</option>
+                    <option>2017</option>
+                    <option>2018</option>
+                    <option>2019</option>
+                    <option>2020</option>
+                </select></div></fieldset>
+            </li>
+            <li class="contact_form_item clearfix">
+                <fieldset><legend>Departure</legend>
+                <div class="contact_form_item_colName">Date:</div>
+                <div class="contact_form_item_colDate1"><select id="dmonth" name="dmonth" required="required" size="1" aria-labelledby="dmonth">
+                <option selected="selected" disabled="disabled" value="">Select Month</option>
+                <option>January</option>
+                <option>February</option>
+                <option>March</option>
+                <option>April</option>
+                <option>May</option>
+                <option>June</option>
+                <option>July</option>
+                <option>August</option>
+                <option>September</option>
+                <option>October</option>
+                <option>November</option>
+                <option>December</option>
+            </select></div>
+                <div class="contact_form_item_colDate2"><select id="dday" name="dday" required="required" size="1" aria-labelledby="dday">
+                    <option selected="selected" disabled="disabled" value="">Select Day</option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                    <option>6</option>
+                    <option>7</option>
+                    <option>8</option>
+                    <option>9</option>
+                    <option>10</option>
+                    <option>11</option>
+                    <option>12</option>
+                    <option>13</option>
+                    <option>14</option>
+                    <option>15</option>
+                    <option>16</option>
+                    <option>17</option>
+                    <option>18</option>
+                    <option>19</option>
+                    <option>20</option>
+                    <option>21</option>
+                    <option>22</option>
+                    <option>23</option>
+                    <option>24</option>
+                    <option>25</option>
+                    <option>26</option>
+                    <option>27</option>
+                    <option>28</option>
+                    <option>29</option>
+                    <option>30</option>
+                    <option>31</option>
+                </select></div>
+                <div class="contact_form_item_colDate3"><select id="dyear" name="dyear" required="required" size="1" aria-labelledby="dyear">
+                    <option selected="selected" disabled="disabled" value="">Select year</option>
+                    <option>2014</option>
+                    <option>2015</option>
+                    <option>2016</option>
+                    <option>2017</option>
+                    <option>2018</option>
+                    <option>2019</option>
+                    <option>2020</option>
+                </select></div>
+                </fieldset>
+            </li>
+            <li class="contact_form_item clearfix">
+                <div class="contact_form_item_colName"><label for="message">Message:</label></div>
+                <div class="contact_form_item_colMessage"><textarea id="message" name="message" placeholder="Type here" cols="40" rows="5" aria-labelledby="message"></textarea></div>
+            </li>
+            <li class="contact_form_item clearfix">
+                <div class="contact_form_item_reset"><input type="reset" id="reset" name="reset" value="Cancel" aria-labelledby="reset"></div>
+                <div class="contact_form_item_proceed"><input type="submit" id="submit" name="submit" value="Proceed" aria-labelledby="submit"></div>
+            </li>
+        </ul>
     </form>
-  </section>
+</section>
 
 </main>
 </body>

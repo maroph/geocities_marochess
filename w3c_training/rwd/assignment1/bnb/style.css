@@ -90,6 +90,14 @@ h2 {
 .bold {
     font-weight:bold;
 }
+/* clearfix source: http://www.positioniseverything.net/easyclearing.html */
+.clearfix:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
 #promoHome a {
     color: white;
     font-weight: bold;
@@ -109,7 +117,81 @@ h2 {
 #formContact {
 
 }
-table {
-    border: 0px solid black;
+.table_list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    background-color: #e0e0e0;
     width: 450px;
+}
+.table_list_item {
+    line-height: 30px;
+}
+.table_list li div {
+    display: block;
+    float: left;
+    padding: 3px 5px;
+
+}
+.table_list_item_name {
+    font-weight:bold;
+    width: 150px;
+}
+.table_list_item_single {
+    width: 80px;
+}
+.table_list_item_double {
+    width: 80px;
+}
+.table_list_item_triple {
+    width: 80px;
+}
+
+.contact_form {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff;
+    width: 500px;
+    border: 1px solid black;
+}
+.contact_form_item {
+    line-height: 30px;
+}
+.contact_form li div {
+    display: block;
+    float: left;
+    padding: 3px 5px;
+
+}
+.contact_form li fieldset {
+    padding: 0;
+    border: 1px dotted black;
+}
+.contact_form_item_colName {
+    font-weight:bold;
+    width: 120px;
+}
+.contact_form_item_colValue {
+    width: 100px;
+}
+.contact_form_item_colDate1 {
+    width: 100px;
+}
+.contact_form_item_colDate2 {
+    width: 100px;
+}
+.contact_form_item_colDate3 {
+    width: 100px;
+}
+.contact_form_item_colMessage {
+    width: 300px;
+}
+.contact_form_item_reset {
+    width: 100px;
+}
+.contact_form_item_proceed {
+    width: 100px;
+    margin-left: 40px;
+    padding-left: 0;
 }
