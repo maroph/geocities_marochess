@@ -87,6 +87,11 @@ h2 {
 	color: #166BA1;
 	margin-top: 0;
 }
+a:link    { color:#0000ff; }
+a:visited { color:#800080; }
+a:focus   { color:#008000; outline: thin dotted; }
+a:hover   { color:#008000; outline: 0px; }
+a:active  { color:#ff0000; outline: 0px; }
 .bold {
     font-weight:bold;
 }

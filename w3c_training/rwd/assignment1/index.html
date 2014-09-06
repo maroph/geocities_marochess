@@ -31,12 +31,13 @@
 
     <article>
         <header>
-            <h3>The HTML5 Adapted Site</h3>
+            <h3>The Adapted Site</h3>
         </header>
         <p>The adapted site is available at</p>
         <ul>
             <li><a href="bnb/index.html">BNB: Canal View B &amp; B</a></li>
         </ul>
+        <p>In the adaption I tried to followed the <a href="./rwd-assignment-1.pdf">assignment description</a>.</p>
         <p>Site checks:</p>
         <ul>
             <li><a href="http://jigsaw.w3.org/css-validator/validator?uri=http%3A%2F%2Fwww.geocities.ws%2Fmarochess%2Fw3c_training%2Frwd%2Fassignment1%2Fbnb%2Findex.html">Check CSS style.css</a></li>
@@ -47,14 +48,63 @@
             <li><a href="http://gsnedders.html5.org/outliner/process.py?url=http%3A%2F%2Fwww.geocities.ws%2Fmarochess%2Fw3c_training%2Frwd%2Fassignment1%2Fbnb%2Findex.html">HTML5 Outline index.html</a></li>
         </ul>
     </article>
+    <article>
+        <header>
+            <h3>Changes</h3>
+        </header>
+            <ul>
+                <li>Adapt to HTML5 markup<br/>
+                    I have adapted the pages <a href="./index.html">index.html</a>,
+                    <a href="./rooms.html">rooms.html</a>,
+                    <a href="./prices.html">prices.html</a>, and
+                    <a href="./contact.html">contact.html</a>
+                    to HTML5. For the rest of the pages I adapted the HTML header only.
+                </li>
+                <li>All tables are rewritten to CSS based code.</li>
+                <li>All CSS related code is located in the file <a href="./bnb/style.css">style.css</a></li>
+                <li>All JavaScript related code is in the file <a href="./bnb/bnb.js">bnb.js</a></li>
+                <li>JavaScript disabled<br/>
+                    <ul>
+                        <li>
+                            The promo page will be viewed at the top of the home page in an iframe.
+                            As an alternative (commented in the index.html file) it will only shown
+                            as a link at the top of the page.
+                        </li>
+                        <li>
+                            All &quot;Close&quot; buttons won't be displayed.
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        <h3>Open Questions/Problems</h3>
+        <ul>
+            <li>Promo Poupup<br/>
+                With JavaScript enabled I use simply the following code at the bottom of the
+                <a href="./index.html">index.html</a> file:<br/>
+                <code style="font-family: Courier, monospace; margin-left: 20px;">window.addEventListener('load', showAdvertisement, false);</code><br/>
+                Maybe that isn't what was the intention of this assignment. But it isn't clear to me, what instead
+                is expected to do when loading the home page of the sample site.
+            </li>
+            <li>IE8 Support<br/>
+                I have added html5shiv.min.js, as described, to the the pages
+                <a href="./index.html">index.html</a>,
+                <a href="./rooms.html">rooms.html</a>,
+                <a href="./prices.html">prices.html</a>, and
+                <a href="./contact.html">contact.html</a>. As I have only IE11 on all my machines, I can't
+                do any IE8 related tests.<br/>
+                To be honest: As I use a lot of modern techniques I'm not that much interested in supporting
+                that old browser versions.
+            </li>
+        </ul>
+    </article>
 </section>
 
 <footer>
     <p>
         <span class="nomobile">Validate <a href="http://validator.w3.org/check/referer" target="_blank">HTML</a> , Validate <a
             href="http://jigsaw.w3.org/css-validator/check/referer" target="_blank">CSS</a><br/></span>
-        Last updated: <time datetime="2014-09-05T16:28:00+0200">Fri, 5 Sep 2014 16:28:00 CEST</time><br/>
-        <a href="../copyright.html" rel="copyright">Copyright</a> Manfred Rosenboom
+        Last updated: <time datetime="2014-09-06T12:54:00+0200">Sat, 6 Sep 2014 12:54:00 CEST</time><br/>
+        <a href="../../copyright.html" rel="copyright">Copyright</a> Manfred Rosenboom
     </p>
 </footer>
 </body>
