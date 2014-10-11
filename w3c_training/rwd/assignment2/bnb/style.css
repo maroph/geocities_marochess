@@ -1,0 +1,212 @@
+@charset "UTF-8";
+main {
+    display: block;
+}
+header, nav, aside, section {
+    display: inline;
+}
+body {
+	margin: 0;
+    padding: 0;
+	background-image: url(background.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	font-size: 100%;
+}
+main {
+    width: 90%;
+    min-width: 400px;
+	padding: 0;
+	margin: 1% auto 1% auto;
+}
+main>header {
+    margin: 0;
+    padding: 0;
+	width: 90%;
+	font-size: 300%;
+	text-transform: uppercase;
+	text-align: center;
+	color: #FFF;
+}
+nav {
+    margin-top: 0;
+    width: 19%;
+    float: left;
+}
+nav>ul {
+    margin: 0;
+    padding: 0;
+    border: 1px solid #000;
+    background-color: #DA622E;
+}
+nav>ul>li {
+    text-align: center;
+    color: #fff;
+    padding: 2% 0 2% 2%;
+    border-bottom: 1px solid #216B9A;
+    /* line-height: 18px; */
+    line-height: 150%;
+}
+nav>ul>li {
+    text-align: left;
+    list-style: none;
+}
+section {
+    width: 59%;
+    float: left;
+    background-color: #FFF;
+    margin-top: 0;
+    padding: 1%;
+}
+section>header>h2 {
+    text-transform: uppercase;
+}
+section>header>img {
+    float: right;
+}
+section>img {
+    float: left;
+    margin-right: 10px;
+}
+aside {
+    width: 18%;
+    min-height: 200px;
+    float: right;
+    margin-top: 0;
+    background-color: #999;
+    padding: 1%;
+}
+aside>p {
+    line-height:1.1;
+    color : white;
+    font-size: 0.8em;
+}
+li a {
+	color: #FFF;
+}
+li a:hover, li a:hover {
+	color: #000;
+}
+a {
+	text-decoration: none;
+	color: #DA622E;
+}
+a:hover, a:focus {
+	color: #09F;
+}
+h1 {
+	margin-top: 0;
+}
+h2 {
+	font-size: 1em;
+	color: #166BA1;
+	margin-top: 0;
+}
+a:link    { color:#0000ff; }
+a:visited { color:#800080; }
+a:focus   { color:#008000; outline: thin dotted; }
+a:hover   { color:#008000; outline: 0px; }
+a:active  { color:#ff0000; outline: 0px; }
+.bold {
+    font-weight:bold;
+}
+/* clearfix source: http://www.positioniseverything.net/easyclearing.html */
+.clearfix:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+#confirmation {
+    background-image: none;
+    margin: 20px;
+}
+#formClose {
+    display: none;
+}
+#formContact {
+
+}
+.table_list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    background-color: #e0e0e0;
+    width: 90%;
+}
+.table_list_item {
+}
+.table_list li div {
+    display: block;
+    float: left;
+    padding: 3px 5px;
+}
+.table_list_item_name {
+    font-weight:bold;
+    width: 33%;
+}
+.table_list_item_single {
+    width: 16%;
+}
+.table_list_item_double {
+    width: 16%;
+}
+.table_list_item_triple {
+    width: 16%;
+}
+
+.contact_form {
+    list-style: none;
+    margin: 1%;
+    padding: 0;
+    background-color: #ffffff;
+    width: 90%;
+    border: 1px solid black;
+}
+.contact_form_item {
+}
+.contact_form li div {
+    display: block;
+    float: left;
+    padding: 1% 2%;
+
+}
+.contact_form li fieldset {
+    padding: 0;
+    border: 1px dotted black;
+}
+.contact_form_item_colName {
+    font-weight:bold;
+    width: 20%;
+}
+.contact_form_item_colValue {
+    width: 60%;
+}
+.contact_form_item_colValue input {
+    width: 100%;
+}
+.contact_form_item_colDate1 {
+    width: 18%;
+}
+.contact_form_item_colDate2 {
+    width: 18%;
+}
+.contact_form_item_colDate3 {
+    width: 18%;
+}
+.contact_form_item_colMessage {
+    width: 70%;
+}
+.contact_form_item_colMessage textarea {
+    width: 100%;
+}
+.contact_form_item_reset {
+    width: 20%;
+}
+.contact_form_item_proceed {
+    width: 20%;
+    margin-left: 20%;
+    padding-left: 0;
+}
