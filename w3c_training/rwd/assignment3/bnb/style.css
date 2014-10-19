@@ -3,9 +3,6 @@ main {
     display: block;
 }
 header, nav, aside, section {
-    /*
-    display: inline;
-    */
     display: block;
 }
 body {
@@ -27,7 +24,7 @@ main>header {
     margin: 0;
     padding: 0;
 	width: 90%;
-	font-size: 300%;
+	font-size: 220%;
 	text-transform: uppercase;
 	text-align: center;
 	color: #FFF;
@@ -36,19 +33,26 @@ nav {
     margin-top: 0;
     width: 19%;
     float: left;
+    background-color: #DA622E;
+}
+nav>h2 {
+    font-size: 100%;
+    text-transform: uppercase;
+    color: #fff;
+    margin: 0;
+    padding: 2% 0 2% 2%;
+    line-height: 150%;
 }
 nav>ul {
     margin: 0;
     padding: 0;
     border: 1px solid #000;
-    background-color: #DA622E;
 }
 nav>ul>li {
     text-align: center;
     color: #fff;
     padding: 2% 0 2% 2%;
     border-bottom: 1px solid #216B9A;
-    /* line-height: 18px; */
     line-height: 150%;
 }
 nav>ul>li {
@@ -216,6 +220,12 @@ a:active  { color:#ff0000; outline: 0px; }
 }
 
 @media screen and (min-width: 600px) and (max-width: 800px) {
+    body {
+        background-image: url(background2.jpg);
+    }
+    main>header {
+        font-size: 150%;
+    }
     nav {
         width: 30%;
     }
@@ -231,8 +241,15 @@ a:active  { color:#ff0000; outline: 0px; }
 }
 
 @media screen and (max-width: 599px) {
+    body {
+        background-image: none;
+    }
     main {
         min-width: 240px;
+    }
+    main>header {
+        font-size: 100%;
+        color: #000;
     }
     nav {
         width: 95%;
