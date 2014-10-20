@@ -8,7 +8,7 @@ header, nav, aside, section {
 body {
 	margin: 0;
     padding: 0;
-	background-image: url(background.jpg);
+	background-image: url(background3.jpg);
 	background-repeat: no-repeat;
 	background-size: cover;
 	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
@@ -236,7 +236,6 @@ a:active  { color:#ff0000; outline: 0px; }
     aside {
         width: 28%;
         float: left;
-        margin-top: -60%;
     }
 }
 
@@ -253,13 +252,24 @@ a:active  { color:#ff0000; outline: 0px; }
     }
     nav {
         width: 95%;
+        clear: both;
+        float: none;
     }
     section {
         width: 93%;
+        clear: both;
+        float: none;
+    }
+    section>header>img {
+        float: none;
+    }
+    section>img {
+        float: none;
+        margin-right: 0;
     }
     aside {
         width: 93%;
-        clear: left;
-        float: left;
+        clear: both;
+        float: none;
     }
 }
