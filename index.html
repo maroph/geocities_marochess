@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
     <meta charset="utf-8"/>
-    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
     <title>GeoCities:marochess:Home Page</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta name="generator" content="PhpStorm 6.0"/>
@@ -15,14 +14,14 @@
     <script src="./includes/core.js"></script>
     <script src="./includes/menu.js"></script>
 <script>
-var serverURL = window.location.toString().replace("\/index.html", "/");
+let serverURL = window.location.toString().replace("\/index.html", "/");
 function go2SelectedPage(sel) {
-    var value = sel.options[sel.selectedIndex].value;
+    let value = sel.options[sel.selectedIndex].value;
     sel.selectedIndex = 0;
-    if (value == "") {
+    if (value === "") {
         return;
     }
-    if ((value.indexOf("http://") == 0) || (value.indexOf("https://") == 0)) {
+    if ((value.indexOf("http://") === 0) || (value.indexOf("https://") === 0)) {
         openURL(value);
         return;
     }
@@ -60,17 +59,14 @@ function go2SelectedPage(sel) {
         </hgroup>
       </header>
       <p>
-        This site is mainly my HTML5/CSS3/JavaScript client-side playground. 
-        No server-side dynamic code is used on this site. 
-        All pages are validated with the <a href="http://validator.w3.org/" target="_blank">W3C Markup Validation Service</a>
-        and the <a href="http://jigsaw.w3.org/css-validator" target="_blank">W3C CSS Validation Service</a>. 
-        This site doesn't even try to support older browsers, so don't expect much fun with a browser older than 
-        Internet Explorer 9!
+        This site is my old Geocites HTML5/CSS3/JavaScript client-side playground.
+        No server-side dynamic code is used on this site.<br/>
+        This site doesn't even try to support older browsers, so don't expect much fun with an older browser!
       </p>
       <p  class="noprint nomobile">
-          <span><a href="http://www.w3.org/" target="_blank"><img src="./resources/w3c_home.png" width="72" height="48" alt="W3C - World Wide Web Consortium" title="W3C - World Wide Web Consortium" style="vertical-align: middle;"/></a></span>
-          <span style="padding-left: 20px;"><a href="http://www.w3.org/html/logo/" target="_blank"><img src="./resources/html5-badge-h-css3-multimedia-semantics.png" width="197" height="64" alt="HTML5 Powered with CSS3 / Styling, Multimedia, and Semantics" title="HTML5 Powered with CSS3 / Styling, Multimedia, and Semantics" style="vertical-align: middle;"></a></span>
-          <span style="padding-left: 0px;"><a href="http://jigsaw.w3.org/css-validator/check/referer" target="_blank"><img src="./resources/vcss-blue.gif" width="88" height="31" alt="Valid CSS3!" title="Valid CSS3!" style="vertical-align: middle;"></a></span>
+          <span><a href="https://www.w3.org/" target="_blank"><img src="./resources/w3c_home.png" width="72" height="48" alt="W3C - World Wide Web Consortium" title="W3C - World Wide Web Consortium" style="vertical-align: middle;"/></a></span>
+          <span style="padding-left: 20px;"><a href="https://www.w3.org/html/logo/" target="_blank"><img src="./resources/html5-badge-h-css3-multimedia-semantics.png" width="197" height="64" alt="HTML5 Powered with CSS3 / Styling, Multimedia, and Semantics" title="HTML5 Powered with CSS3 / Styling, Multimedia, and Semantics" style="vertical-align: middle;"></a></span>
+          <span style="padding-left: 0;"><a href="https://jigsaw.w3.org/css-validator/check/referer" target="_blank"><img src="./resources/vcss-blue.gif" width="88" height="31" alt="Valid CSS3!" title="Valid CSS3!" style="vertical-align: middle;"></a></span>
       </p>
     </section>
 
@@ -80,23 +76,25 @@ function go2SelectedPage(sel) {
                 <h1>Direct Link to Some Pages</h1>
             </hgroup>
         </header>
-        <select onchange="go2SelectedPage(this)" size="1" style="border:1px solid black;background-color:white;">
-            <option value="" selected="selected" disabled="disabled">select page to view</option>
-              <option value="" disabled="disabled">--- Local Tool Pages</option>
-              <option value="tools/escape4html.html">Escape text for HTML</option>
-              <option value="tools/rot13.html">ROT13 encoding/decoding</option>
-              <option value="" disabled="disabled">--- External Tool Pages</option>
-              <option value="https://crypto.cat/">Cryptocat - Secure Chat</option>
-              <option value="https://developers.google.com/speed/pagespeed/insights">Google PageSpeed Insights</option>
-              <option value="http://jsfiddle.net/">jsFiddle - HTML5/CSS3/JavaScript editor</option>
-              <option value="http://liveweave.com/">Liveweave - HTML5/CSS3/JavaScript editor</option>
-              <option value="http://modernizr.com/">Modernizr</option>
-              <option value="" disabled="disabled">--- External References</option>
-              <option value="http://dev.w3.org/html5/">W3C HTML5 Spec Drafts</option>
-              <option value="http://html5demos.com/">HTML5 Demos and Examples</option>
-              <option value="http://cssmediaqueries.com/">CSS Media Queries</option>
-          </select>
-          <noscript><p><b>JavaScript disabled!</b></p></noscript>
+        <label>
+            <select onchange="go2SelectedPage(this)" size="1" style="border:1px solid black;background-color:white;">
+                <option value="" selected="selected" disabled="disabled">select page to view</option>
+                  <option value="" disabled="disabled">--- Local Tool Pages</option>
+                  <option value="tools/escape4html.html">Escape text for HTML</option>
+                  <option value="tools/rot13.html">ROT13 encoding/decoding</option>
+                  <option value="" disabled="disabled">--- External Tool Pages</option>
+                  <option value="https://crypto.cat/">Cryptocat - Secure Chat</option>
+                  <option value="https://developers.google.com/speed/pagespeed/insights">Google PageSpeed Insights</option>
+                  <option value="https://jsfiddle.net/">jsFiddle - HTML5/CSS3/JavaScript editor</option>
+                  <option value="https://liveweave.com/">Liveweave - HTML5/CSS3/JavaScript editor</option>
+                  <option value="https://modernizr.com/">Modernizr</option>
+                  <option value="" disabled="disabled">--- External References</option>
+                  <option value="https://dev.w3.org/html5/">W3C HTML5 Spec Drafts</option>
+                  <option value="https://html5demos.com/">HTML5 Demos and Examples</option>
+                  <option value="https://cssmediaqueries.com/">CSS Media Queries</option>
+              </select>
+        </label>
+        <noscript><p><b>JavaScript disabled!</b></p></noscript>
       </section>
       
       <section style="width:80%;">
@@ -120,30 +118,40 @@ function go2SelectedPage(sel) {
           <li>http://www.geocities.com/marochess</li>
           <li>http://www.geocities.ws/marochess</li>
         </ul>
-        <div style="font-size: 80%;">
-          <hr style="margin-left:0px;width:100px;">
           <p>My last Yahoo! Geocities site version (06-JAN-2005) seems to be still available under the following URL</p>
           <ul>
             <li><a href="http://www.oocities.org/marochess/" target="_blank">http://www.oocities.org/marochess/</a></li>
           </ul>
-          <p>There was an even slightly older Compuserve web site of me but no traces of this site are anymore available.</p>
+          <p>There was even a slightly older Compuserve web site, still available via the wayback machine.</p>
           <ul>
-            <li>URL: http://ourworld.compuserve.com/homepages/Manfred_Rosenboom/</li>
+            <li>URL: <a href="https://web.archive.org/web/19990203175244/http://ourworld.compuserve.com/homepages/Manfred_Rosenboom/">http://ourworld.compuserve.com/homepages/Manfred_Rosenboom/</a></li>
             <li>mail: 100767.3720@compuserve.com</li>
           </ul>
-        </div>
+    </section>
+
+    <section style="width:80%;">
+        <header>
+            <hgroup>
+                <h1>Move to a GitHub Repository</h1>
+            </hgroup>
+        </header>
+        <p>In 2021 I have moved the data of this site to a
+            <a href="https://github.com/maroph/geocities_marochess">GitHub repository</a>
+            and make it available as <a href="https://maroph.github.io/geocities_marochess/">GitHub page</a>
+        </p>
+        <p>Be aware: most of the data is pretty old and no longer state-of-the-art.</p>
     </section>
 
     </main>
     <footer>
       <p>
-        <span class="noprint nomobile">Validate <a href="http://validator.w3.org/check/referer" target="_blank">HTML</a> , Validate <a href="http://jigsaw.w3.org/css-validator/check/referer" target="_blank">CSS</a><br/></span>
-        Last updated: <time datetime="2013-03-24T16:05:00+0100">Sun, 24 Mar 2013 16:05:00 CET</time><br/>
+        <span class="noprint nomobile">Validate <a href="https://validator.w3.org/check/referer" target="_blank">HTML</a> , Validate <a href="https://jigsaw.w3.org/css-validator/check/referer" target="_blank">CSS</a><br/></span>
+        Last updated: <time datetime="2021-07-11T14:42:00+0200">Sun, 11 Jul 2021 14:42 CEST</time><br/>
         <a href="./copyright.html">Copyright</a> Manfred Rosenboom
       </p>
     </footer>
 <script>
-var nodeNavMenu = document.getElementById('navMenu');
+let nodeNavMenu = document.getElementById('navMenu');
 nodeNavMenu.innerHTML = addMenu();
 </script>
 </body>

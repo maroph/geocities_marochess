@@ -1,13 +1,13 @@
 /*
  * Author      : Manfred Rosenboom
- * Site        : http://www.geocities.ws/marochess/
- * Last Update : Sat, 31 Mar 2013 17:08:00 +0200
- * License     : Creative Commons Attribution 3.0 Unported License
- *               http://creativecommons.org/licenses/by/3.0/
+ * Site        : https://maroph.github.io/geocities_marochess/
+ * Last Update : Sun, 11 Jul 2021 15:01:00 +0200
+ * License     : Creative Commons Attribution 3.0 License
+ *               http://creativecommons.org/licenses/by/4.0/
  * =============================================================================
  */
 function addMenu() {
-    var m = '';
+    let m = '';
     m += '\n<ul class="menu">\n';
     m += '  <li><a href="' + baseURL + '/index.html">Home</a>\n';
     m += '    <ul>\n';
@@ -31,8 +31,8 @@ function addMenu() {
     m += '      <li><a href="' + baseURL + '/tools/rot13.html">ROT13 Encoding/Decoding</a></li>\n';
     m += '    </ul>\n';
     m += '  </li>\n';
-    m += '  <li class="mensep"><a href="mailto:marochess@geocities.com">Contact Me</a></li>\n';
-    m += '  <li><a href="http://about.me/maroph" target="_blank">About Me</a></li>\n';
+    m += '  <li class="mensep"><a href="mailto:maroph@pm.me">Contact Me</a></li>\n';
+    m += '  <li><a href="https://github.com/maroph" target="_blank">About Me</a></li>\n';
     m += '</ul>\n';
 
     return m;
